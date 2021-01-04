@@ -1,0 +1,12 @@
+<?php
+
+/** @var  \Magento\Framework\View\Element\Template $block */
+/** @var  \TrendsAttribute\ViewModel\ViewModel\CmsPagesList $viewModel*/
+
+$viewModel = $block->getData('viewModel');
+?>
+<?php
+   echo "<h1>Hello world</h1>";
+   foreach ($viewModel->getItems() as $page): ?>
+    <p><?= $page->getIdentifier() . '-' . $page->getTitle();?></p>
+<?php endforeach; ?>
