@@ -27,13 +27,26 @@ class StockLeft extends Template
     */
     public function getRemainingQuantity()
     {
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $StockState = $objectManager->get('\Magento\CatalogInventory\Api\StockStateInterface');
         $product = $this->getCurrentProduct();
         $stock = $this->stockRegistry->getStockItem($product->getId());
+        if ($product->getTypeId() == "configurable") {
+            $total_stock = 0;
+            $productTypeInstance = $product->getTypeInstance();
+            $usedProducts = $productTypeInstance->getUsedProducts($product);
+
+            foreach ($usedProducts as $simple) {
+                $total_stock += $StockState->getStockQty($simple->getId(), $simple->getStore()->getWebsiteId());
+            }
+
+            return $total_stock;
+        }
+
         if ($stock->getQty() != 0) {
             return $stock->getQty();
-        } else {
-            return "few";
         }
+        return "few";
     }
 
     /**
