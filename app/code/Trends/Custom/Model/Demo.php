@@ -1,5 +1,4 @@
 <?php
-
 namespace Trends\Custom\Model;
 
 class Demo implements \Trends\Custom\Api\DemoInterface
@@ -10,6 +9,6 @@ class Demo implements \Trends\Custom\Api\DemoInterface
 
     public function getName($name)
     {
-        return "Hello Welcome, " . $name;
+        return sprintf("Hello Welcome, %s.", $name);
     }
 }
