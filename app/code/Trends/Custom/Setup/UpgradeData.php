@@ -1,5 +1,4 @@
 <?php
-
 namespace Trends\Custom\Setup;
 
 use Magento\Framework\Setup\ModuleContextInterface;

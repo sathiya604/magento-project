@@ -1,10 +1,9 @@
 <?php
+namespace TrendsAttribute\ProductAttribute\Model\Attribute\Backend;
+
 /**
  * Backend validation for attribute
  */
-
-namespace TrendsAttribute\ProductAttribute\Model\Attribute\Backend;
-
 class Material extends \Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend
 {
     /**

@@ -1,5 +1,4 @@
 <?php
-
 namespace Trends\Custom\Model;
 
 class Example

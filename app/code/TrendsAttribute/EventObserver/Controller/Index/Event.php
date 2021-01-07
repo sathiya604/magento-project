@@ -1,5 +1,4 @@
 <?php
-
 namespace TrendsAttribute\EventObserver\Controller\Index;
 
 class Event extends \Magento\Framework\App\Action\Action

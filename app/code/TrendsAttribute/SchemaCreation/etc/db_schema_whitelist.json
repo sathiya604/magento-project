@@ -5,7 +5,8 @@
             "author_name": true,
             "author_email": true,
             "affliation": true,
-            "age": true
+            "age": true,
+            "sex": true
         },
         "constraint": {
             "PRIMARY": true

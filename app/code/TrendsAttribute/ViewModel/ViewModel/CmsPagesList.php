@@ -1,5 +1,4 @@
 <?php
-
 namespace TrendsAttribute\ViewModel\ViewModel;
 
 use Magento\Cms\Api\PageRepositoryInterface;

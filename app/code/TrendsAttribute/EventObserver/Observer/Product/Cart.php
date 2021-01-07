@@ -1,5 +1,4 @@
 <?php
-
 namespace TrendsAttribute\EventObserver\Observer\Product;
 
 class Cart implements \Magento\Framework\Event\ObserverInterface

@@ -1,13 +1,13 @@
 <?php
-/**
-* to add column
-*/
 namespace TrendsAttribute\ProductAttribute\Setup\Patch\Schema;
 
 use Magento\Framework\DB\Ddl\Table;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\SchemaPatchInterface;
 
+/**
+* to add column
+*/
 class AddColumn implements SchemaPatchInterface
 {
     private $moduleDataSetup;

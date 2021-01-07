@@ -1,5 +1,4 @@
 <?php
-
 namespace TrendsAttribute\ProductAttribute\Setup;
 
 use Magento\Framework\Setup\InstallDataInterface;

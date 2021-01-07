@@ -1,81 +1,56 @@
 <?php
-
 namespace TrendsAttribute\ProductAttribute\Setup\Patch\Data;
 
-     use Magento\Framework\Setup\Patch\DataPatchInterface;
-
-         use Magento\Framework\Setup\Patch\PatchVersionInterface;
-
-         /**
-
- * Class AddData
-
- * @package TrendsAttribute\ProductAttribute\Setup\Patch\Data
-
- */
-
-class AddData implements DataPatchInterface, PatchVersionInterface
-{
+use Magento\Framework\Setup\Patch\DataPatchInterface;
+use Magento\Framework\Setup\Patch\PatchVersionInterface;
 
 /**
-
-* @var \TrendsAttribute\ProductAttribute\Model\Author
-
-*/
-
-    private $author;
-
+ * Class AddData
+ * @package TrendsAttribute\ProductAttribute\Setup\Patch\Data
+ */
+class AddData implements DataPatchInterface, PatchVersionInterface
+{
     /**
-
-    *
-
-    * @param \TrendsAttribute\ProductAttribute\Model\Author $author
-
-    */
-
-    public function __construct(
-        \TrendsAttribute\ProductAttribute\Model\Review $author
-    ) {
+     * @var \TrendsAttribute\ProductAttribute\Model\Author
+     */
+    private $author;
+    /**
+     * @param \TrendsAttribute\ProductAttribute\Model\Author $author
+     */
+    public function __construct(\TrendsAttribute\ProductAttribute\Model\Review $author)
+    {
         $this->author = $author;
     }
 
     /**
-
-    * {@inheritdoc}
-
-    * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
-
-    */
-
+     * {@inheritdoc}
+     * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
+     */
     public function apply()
     {
         $authorData = [];
-
         $authorData['review_id'] = 1;
-
         $authorData['customer_name'] = "Sathiya";
-
-        $this->author->addData($authorData);
-
-        $this->author->getResource()->save($this->author);
+        $this
+            ->author
+            ->addData($authorData);
+        $this
+            ->author
+            ->getResource()
+            ->save($this->author);
     }
 
     /**
-
-    * {@inheritdoc}
-
-    */
-
+     * {@inheritdoc}
+     */
     public static function getDependencies()
     {
         return [];
     }
 
     /**
-
-    * {@inheritdoc}
-
-    */
+     * {@inheritdoc}
+     */
 
     public static function getVersion()
     {
@@ -83,9 +58,8 @@ class AddData implements DataPatchInterface, PatchVersionInterface
     }
 
     /**
-
-    * {@inheritdoc}
-    */
+     * {@inheritdoc}
+     */
 
     public function getAliases()
     {

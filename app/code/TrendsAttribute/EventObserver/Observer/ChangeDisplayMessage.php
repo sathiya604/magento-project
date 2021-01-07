@@ -1,5 +1,4 @@
 <?php
-
 namespace TrendsAttribute\EventObserver\Observer;
 
 /**

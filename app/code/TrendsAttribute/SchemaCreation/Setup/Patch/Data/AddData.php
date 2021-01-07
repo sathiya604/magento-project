@@ -25,7 +25,7 @@ class AddData implements DataPatchInterface, PatchVersionInterface
     {
         $this->moduleDataSetup->startSetup();
         $author=$this->authorFactory->create();
-        $author->setId(1)->setAuthorName('John')->setAuthorEmail('andrew@email.com')->setAffliation('Andrew Company')->setAge(28);
+        $author->setId(1)->setSex('male');
         $this->authorResource->save($author);
         $this->moduleDataSetup->endSetup();
     }
@@ -35,7 +35,7 @@ class AddData implements DataPatchInterface, PatchVersionInterface
     }
     public static function getVersion()
     {
-        return '1.0.1';
+        return '1.7.0';
     }
     public function getAliases()
     {

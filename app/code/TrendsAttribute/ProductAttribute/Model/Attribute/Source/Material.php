@@ -1,10 +1,9 @@
 <?php
+namespace TrendsAttribute\ProductAttribute\Model\Attribute\Source;
+
 /**
  * Source file for attribute
  */
-
-namespace TrendsAttribute\ProductAttribute\Model\Attribute\Source;
-
 class Material extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
 {
     /**
