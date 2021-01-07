@@ -1,8 +1,8 @@
 <?php
-
 namespace Trends\Custom\Block;
 
 use Magento\CatalogInventory\Api\StockRegistryInterface;
+use Magento\CatalogInventory\Api\StockStateInterface;
 use Magento\Framework\Registry;
 use Magento\Framework\View\Element\Template;
 
@@ -10,16 +10,20 @@ class StockLeft extends Template
 {
     private $registry;
     private $stockRegistry;
+    private $stockState;
+    const FEW = 'few';
 
     public function __construct(
         Template\Context $context,
         Registry $registry,
         StockRegistryInterface $stockRegistry,
+        StockStateInterface $stockState,
         array $data = []
     ) {
         parent::__construct($context, $data);
         $this->registry = $registry;
         $this->stockRegistry = $stockRegistry;
+        $this->stockState = $stockState;
     }
 
     /**
@@ -27,26 +31,24 @@ class StockLeft extends Template
     */
     public function getRemainingQuantity()
     {
-        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        $StockState = $objectManager->get('\Magento\CatalogInventory\Api\StockStateInterface');
         $product = $this->getCurrentProduct();
         $stock = $this->stockRegistry->getStockItem($product->getId());
         if ($product->getTypeId() == "configurable") {
-            $total_stock = 0;
+            $totalStock = 0;
             $productTypeInstance = $product->getTypeInstance();
             $usedProducts = $productTypeInstance->getUsedProducts($product);
 
             foreach ($usedProducts as $simple) {
-                $total_stock += $StockState->getStockQty($simple->getId(), $simple->getStore()->getWebsiteId());
+                $totalStock += $this->stockState->getStockQty($simple->getId(), $simple->getStore()->getWebsiteId());
             }
 
-            return $total_stock;
+            return $totalStock;
         }
 
         if ($stock->getQty() != 0) {
             return $stock->getQty();
         }
-        return "few";
+        return self::FEW;
     }
 
     /**
