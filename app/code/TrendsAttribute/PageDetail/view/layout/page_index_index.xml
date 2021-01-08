@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  <body>
+    <block class = "Magento\Framework\View\Element\Template" name="TrendsAttribute.PageDetail" template="TrendsAttribute_PageDetail::page.phtml">
+       <arguments>
+         <argument name= "cmspage" xsi:type="object">TrendsAttribute\PageDetail\ViewModel\Page</argument>
+       </arguments>
+     </block>
+  </body>
+</page>
