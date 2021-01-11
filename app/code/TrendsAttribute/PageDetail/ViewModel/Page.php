@@ -3,6 +3,7 @@ namespace TrendsAttribute\PageDetail\ViewModel;
 
 use Magento\Cms\Api\PageRepositoryInterface;
 use Magento\Framework\Api\SearchCriteriaBuilder;
+use Magento\Framework\Api\SortOrderBuilder;
 
 class Page implements \Magento\Framework\View\Element\Block\ArgumentInterface
 {
@@ -14,13 +15,16 @@ class Page implements \Magento\Framework\View\Element\Block\ArgumentInterface
     * @var SearchCriteriaBuilder
     */
     private $searchCriteriaBuilder;
+    private $sortOrderBuilder;
 
     public function __construct(
         PageRepositoryInterface $pageRepository,
-        SearchCriteriaBuilder $searchCriteriaBuilder
+        SearchCriteriaBuilder $searchCriteriaBuilder,
+        SortOrderBuilder $sortOrderBuilder
     ) {
         $this->pageRepository = $pageRepository;
         $this->searchCriteriaBuilder = $searchCriteriaBuilder;
+        $this->sortOrderBuilder = $sortOrderBuilder;
     }
 
     /**
@@ -28,9 +32,10 @@ class Page implements \Magento\Framework\View\Element\Block\ArgumentInterface
     **/
     public function getItems()
     {
-        $searchCriteria = $this->searchCriteriaBuilder->create();
-        $pageSearchResult = $this->pageRepository->getList($searchCriteria);
+        $sortOrder = $this->sortOrderBuilder->setField('title')->setDirection('ASC')->create();
+        $searchCriteria = $this->searchCriteriaBuilder->setSortOrders([$sortOrder])->setPageSize(2)->create();
+        $someCollection = $this->pageRepository->getList($searchCriteria);
 
-        return $pageSearchResult->getItems();
+        return $someCollection->getItems();
     }
 }
