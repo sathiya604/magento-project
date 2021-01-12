@@ -7,7 +7,7 @@ use Magento\Store\Model\ScopeInterface;
 
 class Data extends AbstractHelper
 {
-    const XML_PATH_HELLOWORLD = 'helloworld/';
+    const XML_PATH_HELLOWORLD = 'helloworld/'; //section
 
     public function getConfigValue($field, $storeId = null)
     {

@@ -3,7 +3,7 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="TrendsAttribute_ExampleAdminNewPage::helloworld_config" title="Hello World" sortOrder="51">
+                <resource id="TrendsAttribute_CustomConfiguration::helloworld_config" title="Enable Helloworld" sortOrder="51">
                 </resource>
             </resource>
         </resources>
