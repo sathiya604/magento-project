@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+<table name="feedback" resource="default" engine="innodb" comment="Feedback table">
+     <column xsi:type="smallint" name="id" padding="6" nullable="false" identity="true" comment="ID"/>
+     <column xsi:type="varchar" name="name" nullable="false" length="50" comment="User Name"/>
+     <column xsi:type="varchar" name="email" nullable="false" length="50" comment="User Email"/>
+     <column xsi:type="varchar" name="feedback" nullable="false" length="50" comment="User Feedback"/>
+     <constraint xsi:type="primary" name="PRIMARY">
+        <column name="id"/>
+     </constraint>
+</table>
+</schema>
