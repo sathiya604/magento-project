@@ -5,7 +5,7 @@
          <block class="TrendsAttribute\PageDetail\Block\Link" name="add-new-header-link">
             <arguments>
                  <argument name="label" xsi:type="string" translate="true">Custom</argument>
-                 <argument name="path" xsi:type="string" translate="true">http://magento-dev.com/page/index/index</argument>
+                 <argument name="path" xsi:type="string" translate="true">http://magento-dev.com/page/index/cmspage</argument>
             </arguments>
          </block>
      </referenceBlock>

@@ -8,7 +8,7 @@ use Magento\Framework\App\Action\Action;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\View\Result\Page;
 
-class Index extends Action
+class Cmspage extends Action
 {
     public function execute()
     {
