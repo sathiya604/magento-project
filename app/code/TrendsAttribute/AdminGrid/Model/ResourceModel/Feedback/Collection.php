@@ -1,5 +1,5 @@
 <?php
-namespace TrendsAttribute\AdminGrid\Model\ResourceModel\Collection;
+namespace TrendsAttribute\AdminGrid\Model\ResourceModel\Feedback;
 
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {

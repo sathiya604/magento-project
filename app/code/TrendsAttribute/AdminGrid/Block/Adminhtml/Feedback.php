@@ -1,5 +1,5 @@
 <?php
-namespace Mageplaza\HelloWorld\Block\Adminhtml;
+namespace TrendsAttribute\AdminGrid\Block\Adminhtml;
 
 class Feedback extends \Magento\Backend\Block\Widget\Grid\Container
 {
