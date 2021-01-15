@@ -25,8 +25,11 @@ class AddData implements DataPatchInterface, PatchVersionInterface
     {
         $this->moduleDataSetup->startSetup();
         $feedback = $this->feedbackFactory->create();
-        $feedback->setName('rama')->setEmail('rama@gmail.com')->setFeedback('good');
+        $feedback->setId(4)->setName('rama')->setEmail('rama123@gmail.com')->setFeedback('satisfied');
         $this->feedbackResource->save($feedback);
+        $feedback = $this->feedbackFactory->create();
+        $feedback->setId(5);
+        $this->feedbackResource->delete($feedback);
         $this->moduleDataSetup->endSetup();
     }
     public static function getDependencies()
