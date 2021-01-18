@@ -15,9 +15,9 @@ class Material extends \Magento\Eav\Model\Entity\Attribute\Backend\AbstractBacke
     public function validate($object)
     {
         $value = $object->getData($this->getAttribute()->getAttributeCode());
-        if (($object->getAttributeSetId() == 4) && ($value == 'wool')) {
+        if (($object->getAttributeSetId() == 4) && ($value == 'Wool')) {
             throw new \Magento\Framework\Exception\LocalizedException(
-                __('Bottom can not be wool.')
+                __('Material can not be wool.')
             );
         }
         return true;
