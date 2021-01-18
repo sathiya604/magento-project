@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="TrendsAttribute_CustomGrid::purchased" title="Purchased" module="TrendsAttribute_CustomGrid" sortOrder="10" action="customgrid/Index" resource="TrendsAttribute_CustomGrid::purchased" parent="TrendsAttribute_CustomSales::customsales"/>
+    </menu>
+</config>
