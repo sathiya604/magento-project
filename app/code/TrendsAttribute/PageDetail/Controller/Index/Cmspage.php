@@ -1,7 +1,4 @@
 <?php
-
-declare(strict_types=1);
-
 namespace TrendsAttribute\PageDetail\Controller\Index;
 
 use Magento\Framework\App\Action\Action;
