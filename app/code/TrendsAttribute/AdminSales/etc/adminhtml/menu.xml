@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="TrendsAttribute_AdminSales::ProductSales"
+            title="Product Using UI"
+            module="TrendsAttribute_AdminSales"
+            sortOrder="99"
+            parent="TrendsAttribute_CustomSales::customsales"
+            action="adminsales/index/index"
+            resource="TrendsAttribute_AdminSales::productsales"/>
+    </menu>
+</config>
