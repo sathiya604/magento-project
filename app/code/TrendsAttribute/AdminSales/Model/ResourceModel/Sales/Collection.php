@@ -3,7 +3,7 @@ namespace TrendsAttribute\AdminSales\Model\ResourceModel\Sales;
 
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
-    protected $_idFieldName = 'entity_id';
+    protected $_idFieldName = 'id';
     protected $_eventPrefix = 'trendsattribute_adminsales_collection';
     protected $_eventObject = 'salesorder_collection';
 
@@ -26,6 +26,9 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
             'second_table.order_id = main_table.entity_id',
             ['sku' => 'sku', 'item_id' => 'item_id']
         );
+        $this->addFilterToMap('sku', 'sales_order_item.sku');
+        $this->addFilterToMap('item_id', 'sales_order_item.item_id');
+
         return $this;
     }
 }
