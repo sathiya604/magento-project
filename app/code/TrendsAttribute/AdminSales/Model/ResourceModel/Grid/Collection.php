@@ -15,7 +15,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
     /**
      * @var string
      */
-    protected $_idFieldName = 'entity_id';
+    protected $_idFieldName = 'order_id';
 
     /**
      * @param EntityFactoryInterface $entityFactory,
@@ -35,7 +35,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
         AdapterInterface $connection = null,
         AbstractDb $resource = null
     ) {
-        $this->_init('TrendsAttribute\AdminSales\Model\Sales', 'Magento\Sales\Model\ResourceModel\Order');
+        $this->_init('TrendsAttribute\AdminSales\Model\Sales', 'TrendsAttribute\AdminSales\Model\ResourceModel\Sales');
         //Class naming structure
         // 'NameSpace\ModuleName\Model\ModelName', 'NameSpace\ModuleName\Model\ResourceModel\ModelName'
         parent::__construct($entityFactory, $logger, $fetchStrategy, $eventManager, $connection, $resource);
@@ -45,10 +45,11 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
     protected function _initSelect()
     {
         parent::_initSelect();
-        $this->getSelect()->join(
-            ['second_table' => $this->getTable('sales_order_item')],
-            'second_table.order_id = main_table.entity_id',
-            ['sku' => 'sku', 'item_id' => 'item_id']
-        );
+        $this->getSelect()
+            ->joinLeft(
+                ['second_table' => $this->getTable('sales_order_item')],
+                'second_table.order_id = main_table.entity_id',
+                ['sku' => 'sku', 'item_id' => 'item_id', 'clothing_material'=>'clothing_material']
+            );
     }
 }
