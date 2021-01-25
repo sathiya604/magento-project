@@ -24,7 +24,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
         $this->getSelect()->join(
             ['second_table' => $this->getTable('sales_order_item')],
             'second_table.order_id = main_table.entity_id',
-            ['sku' => 'sku', 'item_id' => 'item_id']
+            ['sku' => 'sku']
         );
         return $this;
     }
