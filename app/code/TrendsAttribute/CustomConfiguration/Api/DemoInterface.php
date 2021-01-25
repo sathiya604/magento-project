@@ -3,11 +3,9 @@ namespace TrendsAttribute\CustomConfiguration\Api;
 
 interface DemoInterface
 {
-
     /**
-     * GET for Post api
-     * @return string
-     */
+     * @return String[]
+     **/
 
     public function getConfiguration();
 }

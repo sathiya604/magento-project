@@ -3,7 +3,7 @@
 	<route method="GET" url="/V1/customconfig/config">
 		<service class="TrendsAttribute\CustomConfiguration\Api\DemoInterface" method="getConfiguration"/>
 		<resources>
-			<resource ref="anonymous"/>
+			<resource ref="TrendsAttribute_CustomConfiguration::helloworld_config"/>
 		</resources>
 	</route>
 </routes>
