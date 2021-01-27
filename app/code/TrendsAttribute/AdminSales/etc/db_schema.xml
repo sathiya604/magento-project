@@ -2,5 +2,6 @@
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
     <table name="sales_order_item" resource="sales" engine="innodb" comment="Sales Order Item">
         <column xsi:type="varchar" name="clothing_material" nullable="true" length="32" comment="clothing material"/>
+        <column xsi:type="varchar" name="change_status" nullable="true" length="32" comment="status"/>
     </table>
 </schema>
