@@ -35,7 +35,8 @@ class ToOrderItem
     ) {
         $orderItem = $proceed($item, $additional);
         $productId = $item->getProduct()->getId();
-        $product = $this->productRepository->load($productId);
+        $product['clothing_material'] = unserialize($this->productRepository->load($productId));
+
         if (!empty($product->getClothingMaterial())) {
             $orderItem->setClothingMaterial($product->getClothingMaterial());
         }
