@@ -2,7 +2,6 @@
 namespace TrendsAttribute\AdminSales\Controller\Adminhtml\Index;
 
 use Magento\Backend\App\Action\Context;
-use Magento\Framework\Controller\ResultFactory;
 use Magento\Ui\Component\MassAction\Filter;
 use TrendsAttribute\AdminSales\Model\ResourceModel\Grid\CollectionFactory;
 
@@ -14,7 +13,7 @@ class MassDelete extends \Magento\Backend\App\Action
     public function __construct(
         Context $context,
         Filter $filter,
-        \TrendsAttribute\AdminSales\Model\SalesFactory $serviceFactory,
+        \TrendsAttribute\AdminSales\Model\Item $serviceFactory,
         CollectionFactory $collectionFactory
     ) {
         $this->_filter = $filter;
@@ -28,14 +27,18 @@ class MassDelete extends \Magento\Backend\App\Action
         $collection = $this->_filter->getCollection($this->collectionFactory->create());
         $collectionSize = $collection->getSize();
         foreach ($collection as $item) {
-            $item = $this->serviceFactory->create()->load($item->getOrderId());
-            $item->setChangeStatus('InActive');
+            $row = $this->serviceFactory->load($item->getItemId());
+            if ($item->getChangeStatus() == 'Active') {
+                $row->setData("change_status", 'Inactive');
+                $row->save();
+            } elseif ($item->getChangeStatus() == 'Inactive') {
+                $row->setData("change_status", 'Active');
+                $row->save();
+            }
         }
 
-        $this->messageManager->addSuccess(__('A total of %1 element(s) have been deleted.', $collectionSize));
-        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
-        $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
-        return $resultRedirect->setPath('adminsales/index/index');
+        $this->messageManager->addSuccess(__('A total of %1 element(s) have been Activated/Deactivated.', $collectionSize));
+        $this->_redirect("*/*/");
     }
 
     /**

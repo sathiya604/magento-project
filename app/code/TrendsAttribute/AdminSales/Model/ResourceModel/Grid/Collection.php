@@ -15,7 +15,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
     /**
      * @var string
      */
-    protected $_idFieldName = 'order_id';
+    protected $_idFieldName = 'item_id';
 
     /**
      * @param EntityFactoryInterface $entityFactory,
@@ -49,7 +49,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
             ->joinLeft(
                 ['second_table' => $this->getTable('sales_order_item')],
                 'second_table.order_id = main_table.entity_id',
-                ['sku' => 'sku', 'item_id' => 'item_id', 'clothing_material'=>'clothing_material']
+                ['sku' => 'sku', 'item_id' => 'item_id', 'clothing_material'=>'clothing_material', 'change_status' => 'change_status']
             );
     }
 }
