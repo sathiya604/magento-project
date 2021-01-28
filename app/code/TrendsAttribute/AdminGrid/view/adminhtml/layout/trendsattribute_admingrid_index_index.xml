@@ -13,17 +13,17 @@
                         <argument name="save_parameters_in_session" xsi:type="string">1</argument>
                     </arguments>
                     <block class="Magento\Backend\Block\Widget\Grid\Massaction" name="trendsattribute.admingrid.massaction" as="grid.massaction">
-                          <arguments>
-                                <argument name="massaction_id_field" xsi:type="string">id</argument>
-                                <argument name="form_field_name" xsi:type="string">ids</argument>
-                                <argument name="use_select_all" xsi:type="string">1</argument>
-                                <argument name="options" xsi:type="array">
+                        <arguments>
+                            <argument name="massaction_id_field" xsi:type="string">id</argument>
+                            <argument name="form_field_name" xsi:type="string">ids</argument>
+                            <argument name="use_select_all" xsi:type="string">1</argument>
+                            <argument name="options" xsi:type="array">
                                 <item name="disable" xsi:type="array">
-                                <item name="label" xsi:type="string" translate="true">Delete</item>
-                                <item name="url" xsi:type="string">*/*/massDelete</item>
+                                    <item name="label" xsi:type="string" translate="true">Delete</item>
+                                    <item name="url" xsi:type="string">*/*/massDelete</item>
                                 </item>
-                                </argument>
-                          </arguments>
+                            </argument>
+                        </arguments>
                     </block>
                     <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" name="trendsattribute_feedback_grid.grid.columnSet" as="grid.columnSet">
                         <arguments>
@@ -62,6 +62,15 @@
                             <arguments>
                                 <argument name="header" xsi:type="string" translate="true">Feedback</argument>
                                 <argument name="index" xsi:type="string">feedback</argument>
+                                <argument name="type" xsi:type="string">text</argument>
+                                <argument name="column_css_class" xsi:type="string">col-id</argument>
+                                <argument name="header_css_class" xsi:type="string">col-id</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="status">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">Status</argument>
+                                <argument name="index" xsi:type="string">status</argument>
                                 <argument name="type" xsi:type="string">text</argument>
                                 <argument name="column_css_class" xsi:type="string">col-id</argument>
                                 <argument name="header_css_class" xsi:type="string">col-id</argument>
