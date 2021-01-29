@@ -45,6 +45,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
     protected function _initSelect()
     {
         parent::_initSelect();
+
         $this->getSelect()
             ->joinLeft(
                 ['second_table' => $this->getTable('sales_order_item')],

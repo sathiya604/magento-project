@@ -95,7 +95,7 @@
                     <item name="childDefaults" xsi:type="array">
                         <item name="provider" xsi:type="string">trendsattribute_adminsales_grid.trendsattribute_adminsales_grid.listing_top.listing_filters</item>
                         <item name="imports" xsi:type="array">
-                            <item name="visible" xsi:type="string">trendsattribute_adminsales_grid.trendsattribute_adminsales_grid.cust_customer_columns.${ $.index }:visible</item>
+                            <item name="visible" xsi:type="string">trendsattribute_adminsales_grid.trendsattribute_adminsales_grid.example_sales_columns.${ $.index }:visible</item>
                         </item>
                     </item>
                 </item>
@@ -172,6 +172,15 @@
                 </item>
             </argument>
         </column>
+        <column name="customer_email">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sorting" xsi:type="string">asc</item>
+                    <item name="label" xsi:type="string" translate="true">Email</item>
+                </item>
+            </argument>
+        </column>
         <column name="sku">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -195,7 +204,7 @@
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
                     <item name="sorting" xsi:type="string">asc</item>
-                    <item name="label" xsi:type="string" translate="true">Status</item>
+                    <item name="label" xsi:type="string" translate="true">Change Status</item>
                 </item>
             </argument>
         </column>
