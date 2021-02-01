@@ -208,5 +208,12 @@
                 </item>
             </argument>
         </column>
+        <actionsColumn name="actions" class="TrendsAttribute\AdminSales\Ui\Component\Listing\Column\Actions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">item_id</item>
+                </item>
+            </argument>
+        </actionsColumn>
     </columns>
 </listing>
