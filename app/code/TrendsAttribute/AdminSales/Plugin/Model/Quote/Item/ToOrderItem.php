@@ -36,7 +36,7 @@ class ToOrderItem
         $orderItem = $proceed($item, $additional);
         $productId = $item->getProduct()->getId();
         $product = $this->productRepository->load($productId);
-        if (!empty($product->getClothingMaterial())) {
+        if ($product->getAttributeSetId() == 4) {
             $orderItem->setClothingMaterial($product->getClothingMaterial());
         }
 
