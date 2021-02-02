@@ -3,6 +3,8 @@ namespace TrendsAttribute\AdminSales\Controller\Adminhtml\Index;
 
 use Magento\Framework\Controller\ResultFactory;
 
+use TrendsAttribute\AdminSales\Model\ResourceModel\Grid\CollectionFactory;
+
 class Edit extends \Magento\Backend\App\Action
 {
     /**
@@ -19,11 +21,13 @@ class Edit extends \Magento\Backend\App\Action
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\Registry $coreRegistry,
-        \TrendsAttribute\AdminSales\Model\ItemFactory $itemFactory
+        \TrendsAttribute\AdminSales\Model\ItemFactory $itemFactory,
+        CollectionFactory $collectionFactory
     ) {
         parent::__construct($context);
         $this->coreRegistry = $coreRegistry;
         $this->_itemFactory = $itemFactory;
+        $this->collectionFactory = $collectionFactory;
     }
 
     /**
@@ -35,8 +39,11 @@ class Edit extends \Magento\Backend\App\Action
         $rowId = (int) $this->getRequest()->getParam('item_id');
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         if ($rowId) {
-            $rowData = $this->_itemFactory->create()->load($rowId);
-
+            $collection =$this->collectionFactory->create()->addFieldToFilter('item_id', ['eq' => $rowId]);
+            $collectionSize = $collection->getSize();
+            foreach ($collection as $item) {
+                $rowData = $item;
+            }
             if (!$rowData->getId()) {
                 $this->messageManager->addError(__('row data no longer exist.'));
                 $this->_redirect('adminsales/index');

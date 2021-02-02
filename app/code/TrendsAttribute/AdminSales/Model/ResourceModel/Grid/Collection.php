@@ -52,5 +52,12 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
                 'second_table.order_id = main_table.entity_id',
                 ['sku' => 'sku', 'item_id' => 'item_id', 'clothing_material'=>'clothing_material', 'change_status' => 'change_status']
             );
+        $this->addFilterToMap('sku', 'sku');
+        $this->addFilterToMap('item_id', 'item_id');
+        $this->addFilterToMap('clothing_material', 'clothing_material');
+        $this->addFilterToMap('change_status', 'change_status');
+        $this->addFilterToMap('customer_email', 'customer_email');
+        $this->addFilterToMap('increment_id', 'increment_id');
+        return $this;
     }
 }

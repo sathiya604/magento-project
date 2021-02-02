@@ -75,6 +75,34 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
                'title' => __('Item Id'),
                'class' => 'required-entry',
                'required' => true,
+               'disabled' => false,
+           ]
+        );
+
+        $fieldset->addField(
+            'increment_id',
+            'text',
+            [
+               'name' => 'order_id',
+               'label' => __('Order Id'),
+               'id' => 'order_id',
+               'title' => __('Order Id'),
+               'class' => 'required-entry',
+               'required' => true,
+               'disabled' => true,
+           ]
+        );
+
+        $fieldset->addField(
+            'customer_email',
+            'text',
+            [
+               'name' => 'email',
+               'label' => __('Email'),
+               'id' => 'email',
+               'title' => __('Email'),
+               'class' => 'required-entry',
+               'required' => true,
                'disabled' => true,
            ]
         );
@@ -109,13 +137,14 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
 
         $fieldset->addField(
             'change_status',
-            'text',
+            'select',
             [
                'name' => 'change_status',
                'label' => __('Change Status'),
                'id' => 'change_status',
                'title' => __('Status'),
                'class' => 'required-entry',
+               'values' => $this->_status->toOptionArray(),
                'required' => true,
                'disabled' => false,
            ]
