@@ -9,6 +9,7 @@ class Index extends \Magento\Framework\App\Action\Action
         \Magento\Framework\View\Result\PageFactory $pageFactory
     ) {
         $this->_pageFactory = $pageFactory;
+
         return parent::__construct($context);
     }
 
@@ -17,6 +18,15 @@ class Index extends \Magento\Framework\App\Action\Action
         $resultPage = $this->_pageFactory->create();
         $resultPage->getConfig()->getTitle()->prepend(__('Custom Sales using UI Component'));
         $resultPage->addBreadCrumb(__('AdminSales'), __('Sales Order'));
+
         return $resultPage;
+    }
+
+    /**
+     * @return bool
+     */
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('TrendsAttribute_AdminSales::productsales');
     }
 }

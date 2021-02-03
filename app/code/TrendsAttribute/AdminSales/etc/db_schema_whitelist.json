@@ -4,6 +4,10 @@
             "clothing_material": true,
             "change_status": true,
             "status": true
+        },
+        "index": {
+            "SALES_ORDER_ITEM_CLOTHING_MATERIAL": true,
+            "SALES_ORDER_ITEM_CHANGE_STATUS": true
         }
     }
 }
