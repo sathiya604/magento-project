@@ -21,6 +21,7 @@ class Save extends \Magento\Backend\App\Action
 
         if (!$data) {
             $this->_redirect('adminsales/index/index');
+
             return;
         }
         try {
@@ -29,6 +30,7 @@ class Save extends \Magento\Backend\App\Action
             if (!$rowData->getId()) {
                 $this->messageManager->addError(__('row data no longer exist.'));
                 $this->_redirect('adminsales/index/index');
+
                 return;
             }
             $rowData->setData('change_status', $data['change_status']);

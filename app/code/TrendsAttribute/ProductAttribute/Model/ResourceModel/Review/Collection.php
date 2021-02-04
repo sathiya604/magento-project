@@ -7,7 +7,6 @@ namespace TrendsAttribue\ViewModel\Model\ResourceModel\Author;
  */
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
-
     /**
      *
      * @see \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection::_construct()

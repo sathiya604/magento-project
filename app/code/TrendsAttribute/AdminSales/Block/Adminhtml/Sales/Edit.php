@@ -9,6 +9,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
      * @var \Magento\Framework\Registry
      */
     protected $_coreRegistry = null;
+
     /**
      * @param \Magento\Backend\Block\Widget\Context $context
      * @param \Magento\Framework\Registry $registry
@@ -19,6 +20,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
         $this->_coreRegistry = $registry;
         parent::__construct($context, $data);
     }
+
     /**
      * Initialize Imagegallery Images Edit Block.
      */
@@ -35,6 +37,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
         }
         $this->buttonList->remove('reset');
     }
+
     /**
      * Retrieve text for header element depending on loaded image.
      *
@@ -44,6 +47,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
     {
         return __('Add Sales');
     }
+
     /**
      * Check permission for passed action.
      *
@@ -55,6 +59,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
     {
         return true;
     }
+
     /**
      * Get form action URL.
      *

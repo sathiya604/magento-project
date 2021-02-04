@@ -4,9 +4,7 @@ namespace TrendsAttribute\AdminSales\Model;
 class Sales extends \Magento\Framework\Model\AbstractModel implements \Magento\Framework\DataObject\IdentityInterface
 {
     const CACHE_TAG = 'trendsattribute_adminsales_sales';
-
     protected $_cacheTag = 'trendsattribute_adminsales_sales';
-
     protected $_eventPrefix = 'trendsattribute_adminsales_sales';
 
     protected function _construct()

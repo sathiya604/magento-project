@@ -1,5 +1,4 @@
 <?php
-
 namespace TrendsAttribute\PageDetail\Block;
 
 class Link extends \Magento\Framework\View\Element\Html\Link

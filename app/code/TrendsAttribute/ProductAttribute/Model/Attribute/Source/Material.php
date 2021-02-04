@@ -22,6 +22,7 @@ class Material extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
                 ['label' => __('Wool'), 'value' => 'Wool'],
             ];
         }
+
         return $this->_options;
     }
 }

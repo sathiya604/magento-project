@@ -1,5 +1,4 @@
 <?php
-
 namespace TrendsAttribute\CustomConfiguration\Model\Config\Source;
 
 class Country implements \Magento\Framework\Option\ArrayInterface

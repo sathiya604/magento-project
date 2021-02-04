@@ -17,6 +17,7 @@ class Actions extends \Magento\Ui\Component\Listing\Columns\Column
         $this->urlBuilder = $urlBuilder;
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
+
     public function prepareDataSource(array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {
@@ -37,6 +38,7 @@ class Actions extends \Magento\Ui\Component\Listing\Columns\Column
                 }
             }
         }
+
         return $dataSource;
     }
 }

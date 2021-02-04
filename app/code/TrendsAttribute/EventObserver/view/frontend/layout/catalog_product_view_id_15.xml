@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-  <body>
-    <referenceContainer name="page.main.title">
-        <block class = "Magento\Framework\View\Element\Template" name="TrendsAttribute.offer" template="TrendsAttribute_EventObserver::offer.phtml">
-           <arguments>
-             <argument name= "offer" xsi:type="object">TrendsAttribute\EventObserver\ViewModel\Offer</argument>
-           </arguments>
-         </block>
-    </referenceContainer>
-  </body>
+    <body>
+        <referenceContainer name="page.main.title">
+            <block class="Magento\Framework\View\Element\Template" name="TrendsAttribute.offer" template="TrendsAttribute_EventObserver::offer.phtml">
+                <arguments>
+                    <argument name="offer" xsi:type="object">TrendsAttribute\EventObserver\ViewModel\Offer</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
 </page>

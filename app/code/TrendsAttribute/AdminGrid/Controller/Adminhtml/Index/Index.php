@@ -1,5 +1,4 @@
 <?php
-
 namespace TrendsAttribute\AdminGrid\Controller\Adminhtml\Index;
 
 class Index extends \Magento\Backend\App\Action

@@ -3,9 +3,7 @@
 /** @var  \TrendsAttribute\PageDetail\ViewModel\Page $viewModel*/
 
 $viewModel = $block->getData('cmspage');
-?>
-<?php
    echo "<h1>Hello world</h1>";
-   foreach ($viewModel->getItems() as $page): ?>
+  foreach ($viewModel->getItems() as $page): ?>
     <b><p><?= $page->getTitle();?></p></b>
 <?php endforeach; ?>

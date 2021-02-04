@@ -2,7 +2,6 @@
 namespace TrendsAttribute\AdminSales\Controller\Adminhtml\Index;
 
 use Magento\Framework\Controller\ResultFactory;
-
 use TrendsAttribute\AdminSales\Model\ResourceModel\Grid\CollectionFactory;
 
 class Edit extends \Magento\Backend\App\Action
@@ -55,6 +54,7 @@ class Edit extends \Magento\Backend\App\Action
         $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
         $title = $rowId ? __('Edit Row Data ') : __('Add Row Data');
         $resultPage->getConfig()->getTitle()->prepend($title);
+
         return $resultPage;
     }
 

@@ -4,6 +4,7 @@ namespace TrendsAttribute\Feedback\Controller\Adminhtml\Index;
 class Save extends \Magento\Backend\App\Action
 {
     protected $_feedbackFactory;
+
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \TrendsAttribute\Feedback\Model\FeedbackFactory $feedbackFactory
@@ -11,6 +12,7 @@ class Save extends \Magento\Backend\App\Action
         $this->_feedbackFactory = $feedbackFactory;
         parent::__construct($context);
     }
+
     /**
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      * @SuppressWarnings(PHPMD.NPathComplexity)

@@ -4,9 +4,7 @@ namespace TrendsAttribute\SchemaCreation\Model;
 class Author extends \Magento\Framework\Model\AbstractModel implements \Magento\Framework\DataObject\IdentityInterface
 {
     const CACHE_TAG = 'trendsattribute_schemacreation_author';
-
     protected $_cacheTag = 'trendsattribute_schemacreation_author';
-
     protected $_eventPrefix = 'trendsattribute_schemacreation_author';
 
     protected function _construct()

@@ -12,6 +12,7 @@ class AddData implements DataPatchInterface, PatchVersionInterface
     private $authorFactory;
     private $authorResource;
     private $moduleDataSetup;
+
     public function __construct(
         AuthorFactory $authorFactory,
         Author $authorResource,
@@ -21,6 +22,7 @@ class AddData implements DataPatchInterface, PatchVersionInterface
         $this->authorResource = $authorResource;
         $this->moduleDataSetup=$moduleDataSetup;
     }
+
     public function apply()
     {
         //Install data row into contact_details table
@@ -33,14 +35,17 @@ class AddData implements DataPatchInterface, PatchVersionInterface
         $this->authorResource->save($contactDTO);
         $this->moduleDataSetup->endSetup();
     }
+
     public static function getDependencies()
     {
         return [];
     }
+
     public static function getVersion()
     {
         return '3.6.0';
     }
+
     public function getAliases()
     {
         return [];

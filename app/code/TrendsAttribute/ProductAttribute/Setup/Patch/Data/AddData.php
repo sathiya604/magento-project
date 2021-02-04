@@ -51,7 +51,6 @@ class AddData implements DataPatchInterface, PatchVersionInterface
     /**
      * {@inheritdoc}
      */
-
     public static function getVersion()
     {
         return '1.3.0';
@@ -60,7 +59,6 @@ class AddData implements DataPatchInterface, PatchVersionInterface
     /**
      * {@inheritdoc}
      */
-
     public function getAliases()
     {
         return [];

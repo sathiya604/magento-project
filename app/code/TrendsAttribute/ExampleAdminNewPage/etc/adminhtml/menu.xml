@@ -1,7 +1,23 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-      <add id="TrendsAttribute_ExampleAdminNewPage::greetings" title="Greetings" translate="title" module="TrendsAttribute_ExampleAdminNewPage" sortOrder="50" dependsOnModule="TrendsAttribute_ExampleAdminNewPage" resource="TrendsAttribute_ExampleAdminNewPage::greetings"/>
-      <add id="TrendsAttribute_ExampleAdminNewPage::greetings_helloworld" title="Hello World" translate="title" module="TrendsAttribute_ExampleAdminNewPage" parent="TrendsAttribute_ExampleAdminNewPage::greetings" sortOrder="10" dependsOnModule="TrendsAttribute_ExampleAdminNewPage" action="exampleadminnewpage/helloworld/index" resource="TrendsAttribute_ExampleAdminNewPage::greetings"/>
+        <add
+            id="TrendsAttribute_ExampleAdminNewPage::greetings"
+            title="Greetings"
+            translate="title"
+            module="TrendsAttribute_ExampleAdminNewPage"
+            sortOrder="50"
+            dependsOnModule="TrendsAttribute_ExampleAdminNewPage"
+            resource="TrendsAttribute_ExampleAdminNewPage::greetings"/>
+        <add
+            id="TrendsAttribute_ExampleAdminNewPage::greetings_helloworld"
+            title="Hello World"
+            translate="title"
+            module="TrendsAttribute_ExampleAdminNewPage"
+            parent="TrendsAttribute_ExampleAdminNewPage::greetings"
+            sortOrder="10"
+            dependsOnModule="TrendsAttribute_ExampleAdminNewPage"
+            action="exampleadminnewpage/helloworld/index"
+            resource="TrendsAttribute_ExampleAdminNewPage::greetings"/>
     </menu>
 </config>

@@ -20,6 +20,7 @@ class Material extends \Magento\Eav\Model\Entity\Attribute\Backend\AbstractBacke
                 __('Material can not be wool.')
             );
         }
+
         return true;
     }
 }

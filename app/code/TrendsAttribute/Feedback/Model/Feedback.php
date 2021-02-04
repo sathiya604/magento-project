@@ -4,9 +4,7 @@ namespace TrendsAttribute\Feedback\Model;
 class Feedback extends \Magento\Framework\Model\AbstractModel implements \Magento\Framework\DataObject\IdentityInterface
 {
     const CACHE_TAG = 'trendsattribute_feedback_feedback';
-
     protected $_cacheTag = 'trendsattribute_feedback_feedback';
-
     protected $_eventPrefix = 'trendsattribute_feedback_feedback';
 
     protected function _construct()

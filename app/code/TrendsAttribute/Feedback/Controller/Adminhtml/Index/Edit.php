@@ -9,6 +9,7 @@ class Edit extends \Magento\Framework\App\Action\Action
         \Magento\Framework\View\Result\PageFactory $pageFactory
     ) {
         $this->_pageFactory = $pageFactory;
+
         return parent::__construct($context);
     }
 
@@ -16,6 +17,7 @@ class Edit extends \Magento\Framework\App\Action\Action
     {
         $resultPage = $this->_pageFactory->create();
         $resultPage->getConfig()->getTitle()->prepend(__('Add New Feedback'));
+
         return $resultPage;
     }
 }

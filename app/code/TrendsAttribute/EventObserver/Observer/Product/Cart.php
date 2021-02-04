@@ -8,6 +8,7 @@ class Cart implements \Magento\Framework\Event\ObserverInterface
         $item = $observer->getEvent()->getData('quote_item');
         $item = ($item->getParentItem() ? $item->getParentItem() : $item);
         $sku = $item->getProduct()->getData('sku');
+
         if ($sku == "T-Shirt") {
             $customQty = 2;
             $item->setQty($customQty);

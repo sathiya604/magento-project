@@ -1,5 +1,4 @@
 <?php
-
 namespace TrendsAttribute\CustomConfiguration\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;

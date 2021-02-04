@@ -3,11 +3,6 @@ namespace TrendsAttribute\AdminSales\Plugin\Model\Quote\Item;
 
 class ToOrderItem
 {
-
-/**
-*
-* @var type \Magento\Catalog\Model\Product
-*/
     protected $productRepository;
 
     /**

@@ -10,6 +10,7 @@ class InlineEdit extends \Magento\Backend\App\Action
     /** @var JsonFactory  */
     protected $jsonFactory;
     protected $feedback;
+
     /**
      * @param Context $context
      * @param JsonFactory $jsonFactory

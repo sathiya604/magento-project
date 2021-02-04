@@ -26,6 +26,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
             'second_table.order_id = main_table.entity_id',
             ['item_id' => 'item_id', 'sku' => 'sku','clothing_material' => 'clothing_material', 'change_status' => 'change_status']
         );
+
         return $this;
     }
 }

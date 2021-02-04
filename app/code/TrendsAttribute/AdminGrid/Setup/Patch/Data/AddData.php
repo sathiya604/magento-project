@@ -12,6 +12,7 @@ class AddData implements DataPatchInterface, PatchVersionInterface
     private $feedbackFactory;
     private $feedbackResource;
     private $moduleDataSetup;
+
     public function __construct(
         FeedbackFactory $feedbackFactory,
         Feedback $feedbackResource,
@@ -21,6 +22,7 @@ class AddData implements DataPatchInterface, PatchVersionInterface
         $this->feedbackResource = $feedbackResource;
         $this->moduleDataSetup = $moduleDataSetup;
     }
+
     public function apply()
     {
         $this->moduleDataSetup->startSetup();
@@ -32,14 +34,17 @@ class AddData implements DataPatchInterface, PatchVersionInterface
         $this->feedbackResource->delete($feedback);
         $this->moduleDataSetup->endSetup();
     }
+
     public static function getDependencies()
     {
         return [];
     }
+
     public static function getVersion()
     {
         return '1.32.0';
     }
+
     public function getAliases()
     {
         return [];

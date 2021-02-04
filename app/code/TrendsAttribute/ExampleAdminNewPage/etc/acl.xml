@@ -3,8 +3,7 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="TrendsAttribute_ExampleAdminNewPage::greetings" title="Hello World" sortOrder="51">
-                </resource>
+                <resource id="TrendsAttribute_ExampleAdminNewPage::greetings" title="Hello World" sortOrder="51"></resource>
             </resource>
         </resources>
     </acl>
