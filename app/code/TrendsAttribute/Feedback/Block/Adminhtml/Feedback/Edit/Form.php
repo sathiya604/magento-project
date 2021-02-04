@@ -34,7 +34,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
      */
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('TrendsAttribute_AdminSales::feed');
+        return $this->_authorization->isAllowed('TrendsAttribute_Feedback::commentui');
     }
 
     /**
@@ -47,7 +47,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         $dateFormat = $this->_localeDate->getDateFormat(\IntlDateFormatter::SHORT);
         $form = $this->_formFactory->create(
             ['data' => [
-                           'id' => 'new_form',
+                           'id' => 'edit_form',
                            'enctype' => 'multipart/form-data',
                            'action' => $this->getData('action'),
                            'method' => 'post'
@@ -56,27 +56,20 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         );
 
         $form->setHtmlIdPrefix('feedback_');
-        if ($model->getId()) {
-            $fieldset = $form->addFieldset(
-                'base_fieldset',
-                ['legend' => __('Edit Row Data'), 'class' => 'fieldset-wide']
-            );
-            $fieldset->addField('id', 'hidden', ['name' => 'id']);
-        } else {
-            $fieldset = $form->addFieldset(
-                'base_fieldset',
-                ['legend' => __('Add Row Data'), 'class' => 'fieldset-wide']
-            );
-        }
+
+        $fieldset = $form->addFieldset(
+            'base_fieldset',
+            ['legend' => __('Add Row Data'), 'class' => 'fieldset-wide']
+        );
 
         $fieldset->addField(
             'name',
             'text',
             [
-               'name' => 'order_id',
-               'label' => __('Order Id'),
-               'id' => 'order_id',
-               'title' => __('Order Id'),
+               'name' => 'name',
+               'label' => __('Name'),
+               'id' => 'name',
+               'title' => __('Name'),
                'class' => 'required-entry',
                'required' => true,
                'disabled' => false,
@@ -101,17 +94,16 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
             'feedback',
             'text',
             [
-               'name' => 'sku',
-               'label' => __('Sku'),
-               'id' => 'sku',
-               'title' => __('Sku'),
+               'name' => 'feedback',
+               'label' => __('Feedback'),
+               'id' => 'feedback',
+               'title' => __('Feedback'),
                'class' => 'required-entry',
                'required' => true,
                'disabled' => false,
            ]
         );
 
-        $form->setValues($model->getData());
         $form->setUseContainer(true);
         $this->setForm($form);
 

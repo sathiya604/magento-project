@@ -42,7 +42,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
      */
     public function getHeaderText()
     {
-        return __('Add Sales');
+        return __('Add Feedback');
     }
     /**
      * Check permission for passed action.
@@ -51,9 +51,9 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
      *
      * @return bool
      */
-    protected function _isAllowedAction()
+    protected function _isAllowedAction($resourceId)
     {
-        return true;
+        return $this->_authorization->isAllowed($resourceId);
     }
     /**
      * Get form action URL.
@@ -65,6 +65,6 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
         if ($this->hasFormActionUrl()) {
             return $this->getData('form_action_url');
         }
-        return $this->getUrl('*/*/save', ['key' => $this->getSecretKey('trendsattribute_adminsales', 'index', 'save')]);
+        return $this->getUrl('*/*/save', ['key' => $this->getSecretKey('trendsattribute_feedback', 'index', 'save')]);
     }
 }
