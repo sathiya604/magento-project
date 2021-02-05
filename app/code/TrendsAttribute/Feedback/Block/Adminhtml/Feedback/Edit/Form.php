@@ -44,6 +44,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
      */
     protected function _prepareForm()
     {
+        $model = $this->_coreRegistry->registry('row_data');
         $dateFormat = $this->_localeDate->getDateFormat(\IntlDateFormatter::SHORT);
         $form = $this->_formFactory->create(
             ['data' => [
@@ -56,11 +57,12 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         );
 
         $form->setHtmlIdPrefix('feedback_');
-
-        $fieldset = $form->addFieldset(
-            'base_fieldset',
-            ['legend' => __('Add Row Data'), 'class' => 'fieldset-wide']
-        );
+        if ($model) {
+            $fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Feedback Details'), 'class' => 'fieldset-wide']);
+            $fieldset->addField('id', 'hidden', ['name' => 'id']);
+        } else {
+            $fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Feedback Details'), 'class' => 'fieldset-wide']);
+        }
 
         $fieldset->addField(
             'name',
@@ -104,6 +106,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
            ]
         );
 
+        $form->setValues($model ? $model->getData() : '');
         $form->setUseContainer(true);
         $this->setForm($form);
 

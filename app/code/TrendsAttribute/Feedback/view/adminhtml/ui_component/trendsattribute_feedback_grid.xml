@@ -116,5 +116,10 @@
                 </item>
             </argument>
         </column>
+        <actionsColumn name="actions" class="TrendsAttribute\Feedback\Ui\Component\Feedback\Listing\Column\Actions" sortOrder="200">
+            <settings>
+                <indexField>id</indexField>
+            </settings>
+        </actionsColumn>
     </columns>
 </listing>
