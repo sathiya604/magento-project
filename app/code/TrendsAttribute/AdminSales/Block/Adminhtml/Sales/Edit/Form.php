@@ -64,27 +64,8 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
                 'base_fieldset',
                 ['legend' => __('Edit Row Data'), 'class' => 'fieldset-wide']
             );
-            $fieldset->addField('id', 'hidden', ['name' => 'id']);
-        } else {
-            $fieldset = $form->addFieldset(
-                'base_fieldset',
-                ['legend' => __('Add Row Data'), 'class' => 'fieldset-wide']
-            );
+            $fieldset->addField('item_id', 'hidden', ['name' => 'item_id']);
         }
-
-        $fieldset->addField(
-            'item_id',
-            'text',
-            [
-               'name' => 'item_id',
-               'label' => __('Item Id'),
-               'id' => 'item_id',
-               'title' => __('Item Id'),
-               'class' => 'required-entry',
-               'required' => true,
-               'disabled' => false,
-           ]
-        );
 
         $fieldset->addField(
             'increment_id',
