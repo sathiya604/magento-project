@@ -1,0 +1,12 @@
+{
+    "sales_order": {
+        "column": {
+            "Shipping_to": true
+        }
+    },
+    "quote": {
+        "column": {
+            "Shipping_to": true
+        }
+    }
+}
