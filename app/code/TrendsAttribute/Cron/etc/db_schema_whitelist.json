@@ -1,15 +1,21 @@
 {
     "custom_sales_order_grid": {
         "column": {
+            "id": true,
             "item_id": true,
             "increment_id": true,
             "customer_email": true,
+            "sku": true,
             "clothing_material": true,
-            "change_status": true,
-            "sku": true
+            "change_status": true
         },
         "constraint": {
             "PRIMARY": true
+        }
+    },
+    "sales_order": {
+        "column": {
+            "export": true
         }
     }
 }

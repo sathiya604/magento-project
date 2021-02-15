@@ -3,7 +3,7 @@ namespace TrendsAttribute\Cron\Model\ResourceModel\Sales;
 
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
-    protected $_idFieldName = 'item_id';
+    protected $_idFieldName = 'id';
     protected $_eventPrefix = 'trendsattribute_cron_collection';
     protected $_eventObject = 'cron_collection_ui';
 
