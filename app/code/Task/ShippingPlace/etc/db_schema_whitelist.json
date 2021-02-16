@@ -1,12 +1,14 @@
 {
     "sales_order": {
         "column": {
-            "Shipping_to": true
+            "Shipping_to": true,
+            "shipping_to": true
         }
     },
     "quote": {
         "column": {
-            "Shipping_to": true
+            "Shipping_to": true,
+            "shipping_to": true
         }
     }
 }

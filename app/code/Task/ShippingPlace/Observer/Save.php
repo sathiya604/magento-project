@@ -14,9 +14,8 @@ class Save implements \Magento\Framework\Event\ObserverInterface
     {
         $order = $observer->getEvent()->getOrder();
         $quote = $observer->getEvent()->getQuote();
-        $this->logger->info("from shipping observer");
         $this->logger->info($quote->getShippingTo());
-        $order->setShippingTo('Work');
+        $order->setShippingTo($quote->getShippingTo());
 
         return $this;
     }

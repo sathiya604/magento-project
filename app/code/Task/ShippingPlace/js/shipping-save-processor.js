@@ -26,7 +26,7 @@ define([
     return {
         saveShippingInformation: function() {
             var payload;
-            var shipping_to = $('[name="custom_attributes[shipping_to]"]').val();
+            var shipping_to = $('[name="extension_attributes[shipping_to]"]').val();
 
             if(!quote.billingAddress()) {
                 selectBillingAddressAction(quote.shippingAddress());

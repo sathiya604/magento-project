@@ -11,4 +11,10 @@ var config = {
             "Magento_Checkout/js/model/shipping-save-processor/default" : "Task_ShippingPlace/js/shipping-save-processor"
         }
     }
+
+    map: {
+       "*": {
+          'Magento_Checkout/js/model/shipping-save-processor/payload-extender': 'Vendor_Module/js/model/shipping-save-processor/payload-extender-override'
+       }
+    }
 };

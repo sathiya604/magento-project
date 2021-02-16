@@ -26,8 +26,13 @@ class SaveToQuote
         $ext = $addressInformation->getExtensionAttributes();
         $this->logger->info($extAttributes->getShippingTo());
         $this->logger->info($cartId);
+        foreach ($ext as $key => $value) {
+            $this->logger->info($value);
+        }
 
-        $this->logger->info($ext->getShippingTo());
-        $quote->setShippingTo($extAttributes->getShippingTo());
+        $quote->setData('shipping_to', $extAttributes->getShippingTo());
+        $this->quoteRepository->save($quote);
+        $this->logger->info('saved');
+        $this->logger->info($quote->getShippingTo());
     }
 }
