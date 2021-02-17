@@ -20,7 +20,7 @@ class LayoutProcessorPlugin
         $customField = [
             'component' => 'Magento_Ui/js/form/element/select',
             'config' => [
-                'customScope' => 'shippingAddress.extension_attributes',
+                'customScope' => 'shippingAddress.custom_attributes',
                 'customEntry' => null,
                 'template' => 'ui/form/field',
                 'elementTmpl' => 'ui/form/element/select',
@@ -29,7 +29,7 @@ class LayoutProcessorPlugin
                 ],
             ],
 
-            'dataScope' => 'shippingAddress.extension_attributes' . '.' . $customAttributeCode,
+            'dataScope' => 'shippingAddress.custom_attributes' . '.' . $customAttributeCode,
             'label' => 'Shipping Place',
             'provider' => 'checkoutProvider',
             'sortOrder' => 0,
