@@ -20,4 +20,5 @@
     <type name='Magento\Quote\Model\Quote\Item\ToOrderItem'>
         <plugin name='AddclothingMaterial' type='TrendsAttribute\AdminSales\Plugin\Model\Quote\Item\ToOrderItem' sortOrder='99'/>
     </type>
+
 </config>
