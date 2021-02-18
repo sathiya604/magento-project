@@ -14,7 +14,7 @@ var config = {
 
     map: {
        "*": {
-          'Magento_Checkout/js/model/shipping-save-processor/payload-extender': 'Vendor_Module/js/model/shipping-save-processor/payload-extender-override'
+          'Magento_Checkout/js/model/shipping-save-processor/payload-extender': 'Task_ShippingPlace/js/model/shipping-save-processor/payload-extender-override'
        }
     }
 };
