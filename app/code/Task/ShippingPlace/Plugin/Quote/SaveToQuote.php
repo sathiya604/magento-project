@@ -24,12 +24,17 @@ class SaveToQuote
 
         $quote = $this->quoteRepository->getActive($cartId);
         $ext = $addressInformation->getExtensionAttributes();
-        $this->logger->info($extAttributes->getShippingTo());
-        $this->logger->info($cartId);
-        foreach ($ext as $key => $value) {
-            $this->logger->info($value);
+        $value = $addressInformation->getShippingAddress();
+        $ship = $value->getCustomAttributes(); // giving empty array but payload has value , Able to access other values like firstName ..
+        if (is_array($ship)) {
+            $this->logger->info(print_r($ship, true));
+        } else {
+            $this->logger->info("No ");
         }
 
+        $this->logger->info("address info ");
+        $this->logger->info($addressInformation->getFirstName());
+        $this->logger->info($cartId);
         $quote->setData('shipping_to', $extAttributes->getShippingTo());
         $this->quoteRepository->save($quote);
         $this->logger->info('saved');
