@@ -18,20 +18,26 @@ class CustomPrice implements ObserverInterface
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
         $sku = ['Rolex 1001', 'Boat Storm', 'Lehanga', 'Red Tops', 'Alice in wonderland-1'];
+        $product = $observer->getEvent()->getProduct();
+        $pId = $product->getId();
+        $qty = $observer->getEvent()->getQty();
+        $storeId = $product->getStoreId();
         if ($this->_customerSession->isLoggedIn()) {
             $this->customerGroup = $this->_customerSession->getCustomer()->getGroupId();
         }
-
-        $this->logger->info($this->customerGroup);
         if ($this->customerGroup == 1) {
-            $item = $observer->getEvent()->getData('quote_item');
-            $item = ($item->getParentItem() ? $item->getParentItem() : $item);
-            if (in_array($item->getSku(), $sku)) {
-                $price = $item->getPrice() - $item->getPrice()*0.1; //set your price here
-                $item->setCustomPrice($price);
-                $item->setOriginalCustomPrice($price);
-                $item->getProduct()->setIsSuperMode(true);
+            if (in_array($product->getSku(), $sku)) {
+                $finalPrice = $product->getData('final_price') - $product->getData('final_price')*0.1;
+            } else {
+                $finalPrice = $product->getData('final_price');
             }
+
+            $finalPrice = min($product->getData('final_price'), $finalPrice);
+            $product->setFinalPrice($finalPrice);
+
+            return $this;
+        } else {
+            return $this;
         }
     }
 }
