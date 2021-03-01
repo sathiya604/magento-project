@@ -1,0 +1,12 @@
+{
+    "cart_allowed_qty": {
+        "column": {
+            "id": true,
+            "sku": true,
+            "qty": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
