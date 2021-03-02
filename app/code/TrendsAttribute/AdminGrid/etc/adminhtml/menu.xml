@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="TrendsAttribute_AdminGrid::feedback" title="Feedback" module="TrendsAttribute_AdminGrid" sortOrder="51" resource="TrendsAttribute_AdminGrid::feedback"/>
+        <add id="TrendsAttribute_AdminGrid::comments" title="Comments" module="TrendsAttribute_AdminGrid" sortOrder="10" action="feedback/Index" resource="TrendsAttribute_AdminGrid::comment" parent="TrendsAttribute_AdminGrid::feedback"/>
+    </menu>
+</config>

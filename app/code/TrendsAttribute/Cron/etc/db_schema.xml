@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="custom_sales_order_grid" resource="sales" engine="innodb" comment="Custom Sales Flat Order Grid">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" identity="true" nullable="false" comment="Custom ID"/>
+        <column xsi:type="int" name="item_id" padding="10" unsigned="true" nullable="false" comment="Custom Item ID"/>
+        <column xsi:type="varchar" name="increment_id" nullable="true" length="50" comment="Custom Increment ID"/>
+        <column xsi:type="varchar" name="customer_email" nullable="true" length="255" comment="Custom Customer Email"/>
+        <column xsi:type="varchar" name="sku" nullable="true" length="255" comment="Custom Sku"/>
+        <column xsi:type="varchar" name="clothing_material" nullable="true" length="32" comment="Custom Clothing Material"/>
+        <column xsi:type="varchar" name="change_status" default="Active" length="32" comment="Custom Status"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+
+    <table name="sales_order" resource="sales" engine="innodb" comment="Sales Flat Order">
+        +<column xsi:type="int" name="export" padding="10" unsigned="true" default="0" comment="Is Export"/>
+    </table>
+</schema>

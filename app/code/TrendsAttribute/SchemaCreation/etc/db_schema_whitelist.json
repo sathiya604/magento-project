@@ -1,0 +1,15 @@
+{
+    "author_data": {
+        "column": {
+            "id": true,
+            "author_name": true,
+            "author_email": true,
+            "affliation": true,
+            "age": true,
+            "sex": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="author_data" resource="default" engine="innodb" comment="Author Table">
+        <column xsi:type="smallint" name="id" padding="6" unsigned="false" nullable="false" identity="true" comment="Author ID"/>
+        <column xsi:type="varchar" name="author_name" nullable="false" length="50" comment="Author Name"/>
+        <column xsi:type="varchar" name="author_email" nullable="false" length="50" comment="Author Email"/>
+        <column xsi:type="int" name="age" unsigned="true" nullable="true" identity="false" default="" comment="Age"/>
+        +
+        <column xsi:type="varchar" name="sex" nullable="true" identity="false" default="" comment="Sex"/>
+        <constraint xsi:type="primary" name="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

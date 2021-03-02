@@ -1,0 +1,11 @@
+{
+    "review_comments": {
+        "column": {
+            "id": true,
+            "review": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

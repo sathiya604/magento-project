@@ -1,0 +1,9 @@
+<?php
+/**@var \Magento\Framework\View\Element\Template $block*/
+?>
+<?php if ($block->getData('widgettitle')): ?>
+	<b><h2 class='TrendsAttribute-title'><?php echo $block->getData('widgettitle'); ?></h2></b>
+<?php endif; ?>
+<?php if ($block->getData('widgetcontent')): ?>
+	<b><h2 class='TrendsAttribute-content'><?php echo $block->getData('widgetcontent'); ?></h2></b>
+<?php endif; ?>

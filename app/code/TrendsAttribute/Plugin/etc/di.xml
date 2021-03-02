@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="TrendsAttribute\Plugin\Controller\Index\Example">
+        <plugin name="TrendsAttribute_Plugin_Plugin" type="TrendsAttribute\Plugin\Plugin\ExamplePlugin" sortOrder="10" disabled="false"/>
+    </type>
+</config>

@@ -1,0 +1,9 @@
+<?php
+/** @var  \Magento\Framework\View\Element\Template $block */
+/** @var  \TrendsAttribute\PageDetail\ViewModel\Page $viewModel*/
+
+$viewModel = $block->getData('cmspage');
+   echo "<h1>Hello world</h1>";
+  foreach ($viewModel->getItems() as $page): ?>
+    <b><p><?= $page->getTitle();?></p></b>
+<?php endforeach; ?>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="TrendsAttribute_CustomSales::customsales" title="Custom Sales" module="TrendsAttribute_CustomSales" sortOrder="51" resource="TrendsAttribute_CustomSales::customsales"/>
+        <add id="TrendsAttribute_CustomSales::products" title="Products" module="TrendsAttribute_CustomSales" sortOrder="10" action="customsales/Index" resource="TrendsAttribute_CustomSales::product" parent="TrendsAttribute_CustomSales::customsales"/>
+    </menu>
+</config>

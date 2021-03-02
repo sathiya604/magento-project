@@ -1,0 +1,14 @@
+{
+    "feedback": {
+        "column": {
+            "id": true,
+            "name": true,
+            "email": true,
+            "feedback": true,
+            "status": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
