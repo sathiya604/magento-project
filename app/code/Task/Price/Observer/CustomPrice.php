@@ -25,6 +25,7 @@ class CustomPrice implements ObserverInterface
         if ($this->_customerSession->isLoggedIn()) {
             $this->customerGroup = $this->_customerSession->getCustomer()->getGroupId();
         }
+        $this->logger->info($observer->getEvent()->getOrder());
         if ($this->customerGroup == 1) {
             if (in_array($product->getSku(), $sku)) {
                 $finalPrice = $product->getData('final_price') - $product->getData('final_price')*0.1;
