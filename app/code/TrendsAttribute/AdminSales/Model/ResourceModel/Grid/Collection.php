@@ -53,11 +53,6 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
                 ['sku' => 'sku', 'item_id' => 'item_id', 'clothing_material'=>'clothing_material', 'change_status' => 'change_status']
             );
 
-        $this->addFilterToMap('sku', 'second_table.sku');
-        $this->addFilterToMap('item_id', 'second_table.item_id');
-        $this->addFilterToMap('clothing_material', 'second_table.clothing_material');
-        $this->addFilterToMap('change_status', 'second_table.change_status');
-
         return $this;
     }
 }
