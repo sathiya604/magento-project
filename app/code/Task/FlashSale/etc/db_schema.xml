@@ -5,8 +5,8 @@
         <column xsi:type="varchar" name="flash_sale_name" nullable="false" length="50" comment="Flash Sale Name"/>
         <column xsi:type="datetime" name="start_date_time" nullable="false" comment="Start Date Time"/>
         <column xsi:type="datetime" name="end_date_time" nullable="false" comment="End Date Time"/>
-        <column xsi:type="int" name="discount" unsigned="true" nullable="false" comment="Discount Percentage"/>
-        <column xsi:type="decimal" name="max_discount_amount" scale="6" precision="20" unsigned="true" nullable="false" comment="Price"/>
+        <column xsi:type="int" name="discount_percent" unsigned="true" nullable="false" comment="Discount Percentage"/>
+        <column xsi:type="decimal" name="max_discount_amount" scale="2" precision="5" unsigned="true" nullable="false" comment="Price"/>
         <column xsi:type="smallint" name="is_active" padding="5" unsigned="true" nullable="false" default="1" comment="Is Active"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="flash_sale_id"/>

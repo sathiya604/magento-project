@@ -3,7 +3,7 @@
     <update handle="styles"/>
     <body>
         <referenceContainer name="content">
-            <block class="Task\FlashSale\Block\Adminhtml\Sales\Add" name="add"/>
+            <uiComponent name="flashsale_sku_qty"/>
         </referenceContainer>
     </body>
 </page>

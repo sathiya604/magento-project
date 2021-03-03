@@ -5,7 +5,7 @@
             "flash_sale_name": true,
             "start_date_time": true,
             "end_date_time": true,
-            "discount": true,
+            "discount_percent": true,
             "max_discount_amount": true,
             "is_active": true
         },

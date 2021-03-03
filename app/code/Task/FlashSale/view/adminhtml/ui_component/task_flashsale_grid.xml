@@ -22,14 +22,14 @@
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
             <argument name="name" xsi:type="string">task_flashsale_grid_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">flash_sale_id</argument>
-            <argument name="requestFieldName" xsi:type="string">flash_sale_id</argument>
+            <argument name="primaryFieldName" xsi:type="string">flash_sale_item_id</argument>
+            <argument name="requestFieldName" xsi:type="string">flash_sale_item_id</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
                     <item name="update_url" xsi:type="url" path="mui/index/render"/>
                     <item name="storageConfig" xsi:type="array">
-                        <item name="indexField" xsi:type="string">flash_sale_id</item>
+                        <item name="indexField" xsi:type="string">flash_sale_item_id</item>
                     </item>
                 </item>
             </argument>
@@ -101,7 +101,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="selectProvider" xsi:type="string">task_flashsale_grid.task_flashsale_grid.flash_sales_columns.ids</item>
-                    <item name="indexField" xsi:type="string">flash_sale_id</item>
+                    <item name="indexField" xsi:type="string">flash_sale_item_id</item>
                 </item>
             </argument>
             <action name="delete">
@@ -142,10 +142,20 @@
         <selectionsColumn name="ids">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="indexField" xsi:type="string">flash_sale_id</item>
+                    <item name="indexField" xsi:type="string">flash_sale_item_id</item>
+                    <item name="sorting" xsi:type="string">asc</item>
                 </item>
             </argument>
         </selectionsColumn>
+        <column name="flash_sale_item_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sorting" xsi:type="string">asc</item>
+                    <item name="label" xsi:type="string" translate="true">Flash Sale Item Id</item>
+                </item>
+            </argument>
+        </column>
         <column name="flash_sale_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -191,7 +201,7 @@
                 </item>
             </argument>
         </column>
-        <column name="discount">
+        <column name="discount_percent">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -206,6 +216,24 @@
                     <item name="filter" xsi:type="string">text</item>
                     <item name="sorting" xsi:type="string">asc</item>
                     <item name="label" xsi:type="string" translate="true">Maximum Discount Amount</item>
+                </item>
+            </argument>
+        </column>
+        <column name="qty">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sorting" xsi:type="string">asc</item>
+                    <item name="label" xsi:type="string" translate="true">Quantity</item>
+                </item>
+            </argument>
+        </column>
+        <column name="qty_left">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sorting" xsi:type="string">asc</item>
+                    <item name="label" xsi:type="string" translate="true">Quantity Left</item>
                 </item>
             </argument>
         </column>
