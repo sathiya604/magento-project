@@ -8,8 +8,6 @@
         <item name="label" xsi:type="string" translate="true">FlashSale Information</item>
         <item name="config" xsi:type="array">
             <item name="dataScope" xsi:type="string">data</item>
-            <item name="collapsible" xsi:type="boolean">false</item>
-            <item name="opened" xsi:type="boolean">true</item>
             <item name="namespace" xsi:type="string">flashsale_sku_qty</item>
         </item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
@@ -23,8 +21,8 @@
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Task\FlashSale\Model\DataProvider</argument>
             <argument name="name" xsi:type="string">flashsale_sku_qty_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">flash_sale_id</argument>
-            <argument name="requestFieldName" xsi:type="string">flash_sale_id</argument>
+            <argument name="primaryFieldName" xsi:type="string">main_table.flash_sale_id</argument>
+            <argument name="requestFieldName" xsi:type="string">main_table.flash_sale_id</argument>
         </argument>
         <argument name="data" xsi:type="array">
             <item name="js_config" xsi:type="array">
@@ -36,7 +34,6 @@
     <fieldset name="flashsale_details">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
-                <item name="collapsible" xsi:type="boolean">true</item>
                 <item name="label" xsi:type="string" translate="true">Flash Sale Details</item>
                 <item name="sortOrder" xsi:type="number">20</item>
             </item>
@@ -56,20 +53,16 @@
             </argument>
         </field>
 
-        <field name="start_date_time">
+        <field name="start_datetime">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">string</item>
                     <item name="label" xsi:type="string" translate="true">Start Date Time</item>
                     <item name="formElement" xsi:type="string">date</item>
                     <item name="source" xsi:type="string">flashsale</item>
-
-                    <item name="dataScope" xsi:type="string">start_date_time</item>
+                    <item name="dataScope" xsi:type="string">start_datetime</item>
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="boolean">true</item>
-                        <item name="validate-date" xsi:type="boolean">true</item>
-                        <item name="validate-date-range" xsi:type="boolean">true</item>
-                        <item name="date-range-start_date-from" xsi:type="boolean">true</item>
                     </item>
                     <item name="options" xsi:type="array">
                         <item name="dateFormat" xsi:type="string">yyyy-MM-dd</item>
@@ -81,20 +74,16 @@
             </argument>
         </field>
 
-        <field name="end_date_time">
+        <field name="end_datetime">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">string</item>
                     <item name="label" xsi:type="string" translate="true">End Date Time</item>
                     <item name="formElement" xsi:type="string">date</item>
                     <item name="source" xsi:type="string">flashsale</item>
-
-                    <item name="dataScope" xsi:type="string">end_date_time</item>
+                    <item name="dataScope" xsi:type="string">end_datetime</item>
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="boolean">true</item>
-                        <item name="validate-date" xsi:type="boolean">true</item>
-                        <item name="validate-date-range" xsi:type="boolean">true</item>
-                        <item name="date-range-end_date-to" xsi:type="boolean">true</item>
                     </item>
                     <item name="options" xsi:type="array">
                         <item name="dateFormat" xsi:type="string">yyyy-MM-dd</item>
@@ -102,6 +91,32 @@
                         <item name="showsTime" xsi:type="boolean">true</item>
                     </item>
                     <item name="storeTimeZone" xsi:type="string">string</item>
+                </item>
+            </argument>
+        </field>
+        <field name="discount_percent">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">decimal</item>
+                    <item name="label" xsi:type="string" translate="true">Discount Percentage</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">flashsale</item>
+                    <item name="dataScope" xsi:type="string">discount_percent</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="maximum_discount_amount">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">decimal</item>
+                    <item name="label" xsi:type="string" translate="true">Maximum Discount Amount</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">flashsale</item>
+                    <item name="dataScope" xsi:type="string">max_discount_amount</item>
                 </item>
             </argument>
         </field>
@@ -110,7 +125,7 @@
             <settings>
                 <addButtonLabel translate="true">Add Rows</addButtonLabel>
                 <additionalClasses>
-                    <class name="admin__field-wide">true</class>
+                    <class name="admin__field admin__field-wide">true</class>
                 </additionalClasses>
                 <componentType>dynamicRows</componentType>
             </settings>
@@ -174,38 +189,7 @@
                         <componentType>actionDelete</componentType>
                     </settings>
                 </actionDelete>
-
             </container>
         </dynamicRows>
-
-        <field name="discount_percent">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">decimal</item>
-                    <item name="label" xsi:type="string" translate="true">Discount Percentage</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">flashsale</item>
-                    <item name="dataScope" xsi:type="string">discount_percent</item>
-                    <item name="validation" xsi:type="array">
-                        <item name="required-entry" xsi:type="boolean">true</item>
-                    </item>
-                </item>
-            </argument>
-        </field>
-
-        <field name="maximum_discount_amount">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">decimal</item>
-                    <item name="label" xsi:type="string" translate="true">Maximum Discount Amount</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">flashsale</item>
-                    <item name="dataScope" xsi:type="string">maximum_discount_amount</item>
-                    <item name="validation" xsi:type="array">
-                        <item name="required-entry" xsi:type="boolean">true</item>
-                    </item>
-                </item>
-            </argument>
-        </field>
     </fieldset>
 </form>

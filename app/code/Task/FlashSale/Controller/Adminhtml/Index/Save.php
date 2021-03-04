@@ -5,14 +5,17 @@ class Save extends \Magento\Backend\App\Action
 {
     protected $_salesFactory;
     protected $_itemFactory;
+    protected $flashSaleCollectionFactory;
 
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Task\FlashSale\Model\SalesFactory $salesFactory,
-        \Task\FlashSale\Model\ItemFactory $itemFactory
+        \Task\FlashSale\Model\ItemFactory $itemFactory,
+        \Task\FlashSale\Model\ResourceModel\Grid\CollectionFactory $flashSaleCollectionFactory
     ) {
         $this->_salesFactory = $salesFactory;
         $this->_itemFactory = $itemFactory;
+        $this->flashSaleCollectionFactory = $flashSaleCollectionFactory;
         parent::__construct($context);
     }
 
@@ -30,10 +33,19 @@ class Save extends \Magento\Backend\App\Action
             return;
         }
         try {
+            $collection = $this->flashSaleCollectionFactory->create()->addFieldToFilter('start_datetime', ['lteq' => $data['start_datetime']])->addFieldToFilter('end_datetime', ['gteq' => $data['start_datetime']]);
+
+            if (!empty($collection)) {
+                foreach ($collection as $value) {
+                    $message = $value['flash_sale_name'] . " Already Exists In The Given Time";
+                    throw new \Magento\Framework\Exception\LocalizedException(__($message));
+                }
+            }
+
             $rowData = $this->_salesFactory->create();
             $rowData->setData('flash_sale_name', $data['flash_sale_name']);
-            $rowData->setData('start_date_time', $data['start_date_time']);
-            $rowData->setData('end_date_time', $data['end_date_time']);
+            $rowData->setData('start_datetime', $data['start_datetime']);
+            $rowData->setData('end_datetime', $data['end_datetime']);
             $rowData->setData('discount_percent', $data['discount_percent']);
             $rowData->setData('max_discount_amount', $data['maximum_discount_amount']);
             $rowData->save();

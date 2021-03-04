@@ -3,8 +3,8 @@
         "column": {
             "flash_sale_id": true,
             "flash_sale_name": true,
-            "start_date_time": true,
-            "end_date_time": true,
+            "start_datetime": true,
+            "end_datetime": true,
             "discount_percent": true,
             "max_discount_amount": true,
             "is_active": true

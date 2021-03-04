@@ -5,6 +5,7 @@ use Task\FlashSale\Model\ResourceModel\Grid\CollectionFactory;
 
 class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
+    protected $_loadedData;
     /**
      * @param string $name
      * @param string $primaryFieldName
@@ -32,6 +33,14 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      */
     public function getData()
     {
-        return [];
+        if (isset($this->_loadedData)) {
+            return $this->_loadedData;
+        }
+        $items = $this->collection->getItems();
+        foreach ($items as $flashsale) {
+            $this->_loadedData[$flashsale->getFlashSaleId()] = $flashsale->getData();
+        }
+
+        return $this->_loadedData;
     }
 }

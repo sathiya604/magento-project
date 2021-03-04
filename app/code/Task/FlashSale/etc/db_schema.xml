@@ -3,8 +3,8 @@
     <table name="flash_sale" resource="default" engine="innodb" comment="Flash Sale">
         <column xsi:type="int" name="flash_sale_id" padding="11" unsigned="true" nullable="false" identity="true" comment="Flash Sale ID"/>
         <column xsi:type="varchar" name="flash_sale_name" nullable="false" length="50" comment="Flash Sale Name"/>
-        <column xsi:type="datetime" name="start_date_time" nullable="false" comment="Start Date Time"/>
-        <column xsi:type="datetime" name="end_date_time" nullable="false" comment="End Date Time"/>
+        <column xsi:type="datetime" name="start_datetime" nullable="false" comment="Start Date Time"/>
+        <column xsi:type="datetime" name="end_datetime" nullable="false" comment="End Date Time"/>
         <column xsi:type="int" name="discount_percent" unsigned="true" nullable="false" comment="Discount Percentage"/>
         <column xsi:type="decimal" name="max_discount_amount" scale="2" precision="5" unsigned="true" nullable="false" comment="Price"/>
         <column xsi:type="smallint" name="is_active" padding="5" unsigned="true" nullable="false" default="1" comment="Is Active"/>
