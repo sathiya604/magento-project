@@ -37,8 +37,10 @@ class Save extends \Magento\Backend\App\Action
 
             if (!empty($collection)) {
                 foreach ($collection as $value) {
-                    $message = $value['flash_sale_name'] . " Already Exists In The Given Time";
-                    throw new \Magento\Framework\Exception\LocalizedException(__($message));
+                    if ($value['is_active'] == 1) {
+                        $message = $value['flash_sale_name'] . " Already Exists In The Given Time";
+                        throw new \Magento\Framework\Exception\LocalizedException(__($message));
+                    }
                 }
             }
 
@@ -47,7 +49,7 @@ class Save extends \Magento\Backend\App\Action
             $rowData->setData('start_datetime', $data['start_datetime']);
             $rowData->setData('end_datetime', $data['end_datetime']);
             $rowData->setData('discount_percent', $data['discount_percent']);
-            $rowData->setData('max_discount_amount', $data['maximum_discount_amount']);
+            $rowData->setData('max_discount_amount', $data['max_discount_amount']);
             $rowData->save();
             $primaryKey = $rowData->getFlashSaleId();
             if (is_array($record) && !empty($record)) {

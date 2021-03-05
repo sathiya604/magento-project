@@ -5,7 +5,7 @@ use Magento\Framework\Controller\ResultFactory;
 use Task\FlashSale\Model\ResourceModel\Grid\CollectionFactory;
 use Task\FlashSale\Model\ResourceModel\Grid\ItemCollectionFactory;
 
-class Add extends \Magento\Backend\App\Action
+class Edit extends \Magento\Backend\App\Action
 {
     /**
      * @var \Magento\Framework\Registry
@@ -42,7 +42,7 @@ class Add extends \Magento\Backend\App\Action
     public function execute()
     {
         $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
-        $title = "Add Flash Sale";
+        $title = "Edit Flash Sale";
         $resultPage->getConfig()->getTitle()->prepend($title);
 
         return $resultPage;

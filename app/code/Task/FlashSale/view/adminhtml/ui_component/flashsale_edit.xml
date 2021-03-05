@@ -2,32 +2,31 @@
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">flashsale_sku_qty.flashsale_sku_qty_data_source</item>
-            <item name="deps" xsi:type="string">flashsale_sku_qty.flashsale_sku_qty_data_source</item>
+            <item name="provider" xsi:type="string">flashsale_edit.flashsale_edit_data_source</item>
+            <item name="deps" xsi:type="string">flashsale_edit.flashsale_edit_data_source</item>
         </item>
         <item name="label" xsi:type="string" translate="true">FlashSale Information</item>
         <item name="config" xsi:type="array">
             <item name="dataScope" xsi:type="string">data</item>
-            <item name="namespace" xsi:type="string">flashsale_sku_qty</item>
+            <item name="namespace" xsi:type="string">flashsale_edit</item>
         </item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
         <item name="buttons" xsi:type="array">
             <item name="back" xsi:type="string">Task\FlashSale\Block\Adminhtml\Sales\Edit\BackButton</item>
-            <item name="reset" xsi:type="string">Task\FlashSale\Block\Adminhtml\Sales\Edit\ResetButton</item>
             <item name="save" xsi:type="string">Task\FlashSale\Block\Adminhtml\Sales\Edit\SaveButton</item>
         </item>
     </argument>
-    <dataSource name="flashsale_sku_qty_data_source">
+    <dataSource name="flashsale_edit_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Task\FlashSale\Model\Data</argument>
-            <argument name="name" xsi:type="string">flashsale_sku_qty_data_source</argument>
+            <argument name="name" xsi:type="string">flashsale_edit_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">flash_sale_id</argument>
             <argument name="requestFieldName" xsi:type="string">flash_sale_id</argument>
         </argument>
         <argument name="data" xsi:type="array">
             <item name="js_config" xsi:type="array">
                 <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
-                <item name="submit_url" path="*/*/save" xsi:type="url"/>
+                <item name="submit_url" path="*/*/EditSave" xsi:type="url"/>
             </item>
         </argument>
     </dataSource>
@@ -189,6 +188,21 @@
                         </validation>
                         <dataType>decimal</dataType>
                         <label>Quantity</label>
+                    </settings>
+                </field>
+                <field name="qty_left" formElement="input">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="fit" xsi:type="boolean">false</item>
+                        </item>
+                    </argument>
+                    <settings>
+                        <validation>
+                            <rule name="required-entry" xsi:type="boolean">true</rule>
+                            <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                        </validation>
+                        <dataType>decimal</dataType>
+                        <label>Quantity Left</label>
                     </settings>
                 </field>
                 <actionDelete template="Magento_Backend/dynamic-rows/cells/action-delete">

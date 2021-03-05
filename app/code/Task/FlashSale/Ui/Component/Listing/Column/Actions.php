@@ -5,7 +5,7 @@ class Actions extends \Magento\Ui\Component\Listing\Columns\Column
 {
     protected $urlBuilder;
 
-    const URL_EDIT_PATH = 'flashsale/Index/add';
+    const URL_EDIT_PATH = 'flashsale/Index/edit';
 
     public function __construct(
         \Magento\Framework\UrlInterface $urlBuilder,
@@ -29,7 +29,7 @@ class Actions extends \Magento\Ui\Component\Listing\Columns\Column
                                 static::URL_EDIT_PATH,
                                 [
                                     'flash_sale_id' => $item['flash_sale_id'],
-                                    'key' => $this->urlBuilder->getSecretKey('flash_sale', 'Index', 'add')
+                                    'key' => $this->urlBuilder->getSecretKey('flash_sale', 'Index', 'edit')
                                 ]
                             ),
                             'label' => __('Edit'),

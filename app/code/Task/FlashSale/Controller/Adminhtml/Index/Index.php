@@ -9,7 +9,7 @@ class Index extends \Magento\Framework\App\Action\Action
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
         \Magento\Framework\View\Result\PageFactory $pageFactory,
-        \Task\FlashSale\Model\DataProvider $value
+        \Task\FlashSale\Model\Data $value
     ) {
         $this->_pageFactory = $pageFactory;
         $this->value = $value;
