@@ -33,7 +33,9 @@ class Save extends \Magento\Backend\App\Action
             return;
         }
         try {
-            $collection = $this->flashSaleCollectionFactory->create()->addFieldToFilter('start_datetime', ['lteq' => $data['start_datetime']])->addFieldToFilter('end_datetime', ['gteq' => $data['start_datetime']]);
+            $collection = $this->flashSaleCollectionFactory->create()
+                            ->addFieldToFilter('start_datetime', ['lteq' => $data['end_datetime']])
+                            ->addFieldToFilter('end_datetime', ['gteq' => $data['start_datetime']]);
 
             if (!empty($collection)) {
                 foreach ($collection as $value) {
@@ -57,8 +59,7 @@ class Save extends \Magento\Backend\App\Action
                     $itemData = $this->_itemFactory->create();
                     $itemData->setData('flash_sale_id', $primaryKey);
                     $itemData->setData('sku', $records['sku']);
-                    $itemData->setData('qty', $records['qty']);
-                    $itemData->setData('qty_left', $records['qty']);
+                    $itemData->setData('qty_left', $records['qty_left']);
                     $itemData->save();
                 }
             } else {

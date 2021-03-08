@@ -175,21 +175,6 @@
                         </select>
                     </formElements>
                 </field>
-                <field name="qty" formElement="input">
-                    <argument name="data" xsi:type="array">
-                        <item name="config" xsi:type="array">
-                            <item name="fit" xsi:type="boolean">false</item>
-                        </item>
-                    </argument>
-                    <settings>
-                        <validation>
-                            <rule name="required-entry" xsi:type="boolean">true</rule>
-                            <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
-                        </validation>
-                        <dataType>decimal</dataType>
-                        <label>Quantity</label>
-                    </settings>
-                </field>
                 <field name="qty_left" formElement="input">
                     <argument name="data" xsi:type="array">
                         <item name="config" xsi:type="array">
@@ -203,6 +188,18 @@
                         </validation>
                         <dataType>decimal</dataType>
                         <label>Quantity Left</label>
+                    </settings>
+                </field>
+                <field name="qty_ordered" formElement="input">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="disabled" xsi:type="boolean">true</item>
+
+                        </item>
+                    </argument>
+                    <settings>
+                        <dataType>decimal</dataType>
+                        <label>Quantity Ordered</label>
                     </settings>
                 </field>
                 <actionDelete template="Magento_Backend/dynamic-rows/cells/action-delete">

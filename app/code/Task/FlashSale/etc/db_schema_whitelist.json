@@ -19,7 +19,8 @@
             "flash_sale_id": true,
             "sku": true,
             "qty": true,
-            "qty_left": true
+            "qty_left": true,
+            "qty_ordered": true
         },
         "constraint": {
             "PRIMARY": true,

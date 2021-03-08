@@ -130,7 +130,7 @@
                     <item name="component" xsi:type="string">Magento_Ui/js/form/element/select</item>
                     <item name="label" xsi:type="string" translate="true">Enable/Disable</item>
                     <item name="dataScope" xsi:type="string">is_active</item>
-                    <item name="default" xsi:type="string">0</item>
+                    <item name="default" xsi:type="string">1</item>
                     <item name="disabled" xsi:type="boolean">false</item>
                     <item name="showFallbackReset" xsi:type="boolean">false</item>
                     <item name="sortOrder" xsi:type="string">20</item>
@@ -176,7 +176,7 @@
                         </select>
                     </formElements>
                 </field>
-                <field name="qty" formElement="input">
+                <field name="qty_left" formElement="input">
                     <argument name="data" xsi:type="array">
                         <item name="config" xsi:type="array">
                             <item name="fit" xsi:type="boolean">false</item>
