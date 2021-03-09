@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Task_FlashSale::flashsale" title="Flash Sale" module="Task_FlashSale" sortOrder="51" resource="Task_FlashSale::flashsale"/>
+        <add id="Task_FlashSale::flashsalegrid" title="Flash sale" module="Task_FlashSale" sortOrder="10" action="flashsale/Index" resource="Task_FlashSale::flashsalegrid" parent="Task_FlashSale::flashsale"/>
+    </menu>
+</config>

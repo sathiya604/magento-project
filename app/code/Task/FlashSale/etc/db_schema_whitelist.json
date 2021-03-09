@@ -1,0 +1,35 @@
+{
+    "flash_sale": {
+        "column": {
+            "flash_sale_id": true,
+            "flash_sale_name": true,
+            "start_datetime": true,
+            "end_datetime": true,
+            "discount_percent": true,
+            "max_discount_amount": true,
+            "is_active": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "flash_sale_item": {
+        "column": {
+            "flash_sale_item_id": true,
+            "flash_sale_id": true,
+            "sku": true,
+            "qty": true,
+            "qty_left": true,
+            "qty_ordered": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FLASH_SALE_ITEM_FLASH_SALE_ID_FLASH_SALE_FLASH_SALE_ID": true
+        }
+    },
+    "sales_order": {
+        "column": {
+            "is_flashsale": true
+        }
+    }
+}
