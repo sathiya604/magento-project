@@ -50,7 +50,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
             ->joinLeft(
                 ['second_table' => $this->getTable('flash_sale_item')],
                 'second_table.flash_sale_id = main_table.flash_sale_id',
-                ['flash_sale_item_id' => 'flash_sale_item_id', 'sku' => 'sku', 'qty_left' => 'qty_left']
+                ['flash_sale_item_id' => 'flash_sale_item_id', 'sku' => 'sku', 'qty_left' => 'qty_left', 'qty_ordered' => 'qty_ordered']
             );
 
         return $this;

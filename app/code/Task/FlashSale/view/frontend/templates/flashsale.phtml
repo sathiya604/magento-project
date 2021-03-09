@@ -1,0 +1,27 @@
+<div>
+
+<?php
+
+/**
+ * @var \Trends\CustomBlock\Block\Display $block
+ */
+if (isset($block->flashSaleDetails()[0]['flash_sale_name'])) {
+    echo ' <pre><h2>Flash Sale ' . $block->flashSaleDetails()[0]['flash_sale_name'] . " Ends In " . $block->flashSaleRemainingTime() . " Minutes</h2>";
+
+    foreach ($block->flashSaleItems() as $value) {
+        echo $value['sku'] . " ";
+        $max = $value['qty_left'] + $value['qty_ordered'];
+
+        echo '<progress id="file" value=' . $value['qty_left'] . ' max=' . $max . '>' . $value['qty_left'] . '</progress><br>';
+    }
+
+    foreach ($block->flashSaleItems() as $value) {
+        if ($value['qty_left'] <= 2) {
+            echo "only " . $value['qty_left'] . " left in " . $value['sku'];
+        }
+    }
+}
+
+ ?>
+
+</div>

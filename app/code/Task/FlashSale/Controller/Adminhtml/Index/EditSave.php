@@ -74,7 +74,7 @@ class EditSave extends \Magento\Backend\App\Action
                 $record = $this->getRequest()->getParam('dynamic_rows');   //add new sku
                 foreach ($record as $value) {
                     if (empty($value['flash_sale_id'])) {
-                        $collection = $this->flashSalesCollectionFactory->create()
+                        $collection = $this->flashSaleCollectionFactory->create()
                                         ->addFieldToFilter('sku', ['eq' => $value['sku']])
                                         ->addFieldToFilter('second_table.flash_sale_id', ['eq' => $this->getRequest()->getParam('flash_sale_id')]);
                         foreach ($collection as $value) {
