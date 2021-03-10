@@ -64,6 +64,8 @@ class CustomPrice implements ObserverInterface
                 if ($maxDiscount != 0) {
                     if ($maxDiscount < $discount) {
                         $finalPrice = $product->getData('final_price') - $maxDiscount;
+                    } else {
+                        $finalPrice = $product->getData('final_price') - $discount;
                     }
                 } else {
                     $finalPrice = $product->getData('final_price') - $discount;

@@ -1,0 +1,28 @@
+.flash-sale {
+  background-color: tomato;
+  color: white;
+  border: 2px solid black;
+  margin: 20px;
+  padding: 20px
+}
+
+.right {
+  margin-left: 50%
+}
+
+.left {
+  width: 50%;
+  float: left
+}
+
+.qty-left {
+  color: red;
+}
+
+.flash-sale-catalog {
+  background-color: mediumseagreen;
+  color: white;
+  border: 2px solid black;
+  margin: 2px;
+  padding: 2px
+}
