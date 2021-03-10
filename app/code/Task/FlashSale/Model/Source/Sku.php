@@ -20,6 +20,7 @@ class Sku implements \Magento\Framework\Option\ArrayInterface
 
         $collection = $productCollection->create()
           ->addAttributeToSelect('sku')
+          ->addAttributeToFilter('type_id', \Magento\Catalog\Model\Product\Type::TYPE_SIMPLE)
           ->load();
         $i = 0;
         foreach ($collection as $product) {
