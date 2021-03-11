@@ -1,9 +1,14 @@
 .flash-sale {
-  background-color: tomato;
-  color: white;
-  border: 2px solid black;
+  background-color: Indianred;
+  border: 6px solid black;
   margin: 20px;
-  padding: 20px
+  padding: 20px;
+  background: url('https://i.pinimg.com/originals/12/4d/e3/124de3d1b5e12f1d8fcec1685e634361.gif');
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 .right {
@@ -21,7 +26,7 @@
 
 .flash-sale-catalog {
   background-color: mediumseagreen;
-  color: white;
+  background: url('https://i.pinimg.com/originals/96/2f/b5/962fb5922d0e4085b2043a7b99120251.gif');
   border: 2px solid black;
   margin: 2px;
   padding: 2px

@@ -1,25 +1,84 @@
-<div class="flash-sale-catalog">
 <?php
 /**
  * @var \Task\FlashSale\Block\FlashSale $block
  */
-echo print_r($block->getConfigurableProduct(), true);
+
 foreach ($block->flashSaleItems() as $value) {
-    if ($value['sku'] == $block->getCurrentProduct()->getSku()) {
+    if ($value['sku'] == $block->getCurrentProduct()->getSku() && $block->getCurrentProduct()->getTypeId() == 'simple' && $block->getCurrentProduct()->getTypeId() == 'grouped') {
         if (isset($block->flashSaleDetails()[0]['flash_sale_name'])) {
-            echo '<h2>Flash Sale : ' . $block->flashSaleDetails()[0]['flash_sale_name'] . " Ends In " . gmdate("H:i:s", $block->flashSaleRemainingTime()) . " </h2>";
+            echo '<div class="flash-sale-catalog"><h1><b>Flash Sale : ' . $block->flashSaleDetails()[0]['flash_sale_name'] . " Ends In " . gmdate("H:i:s", $block->flashSaleRemainingTime()) . " </b></h1>";
         }
-        echo "<h4>There is on-going Flash sale for this product</h4>";
-        echo "<h4>Offer Price " . $block->getCurrentProduct()->getFinalPrice() . "</h4>";
-        echo '<h4><i>Quantity Left: ' . $value['qty_left'] . '</i></h4><br>';
+        echo "<h4>There is on-going Flash sale for " . $value['sku'] . " product</h4>";
+        echo "<h4>Offer Price : " . $block->getCurrentProduct()->getFinalPrice() . "</h4>";
+        echo '<h4><i>Quantity Left : ' . $value['qty_left'] . '</i></h4><br>';
         if ($value['qty_left'] == 0) {
             echo "<b>No Stock Left</b><br>";
         }
         if ($value['qty_left'] <= 2  && $value['qty_left'] > 0) {
-            echo "<h4><p class='qty-left'>only " . $value['qty_left'] . " left in " . $value['sku'] . "</p><br></h4>";
+            echo "<h4><p class='qty-left'>only " . $value['qty_left'] . " left in " . $value['sku'] . "</p><br></h4></div>";
         }
     }
 }
 
-?>
-</div>
+if ($block->getCurrentProduct()->getTypeId() == 'configurable') {
+    if (isset($block->flashSaleDetails()[0]['flash_sale_name'])) {
+        echo '<div class="flash-sale-catalog"><h2>Flash Sale : ' . $block->flashSaleDetails()[0]['flash_sale_name'] . " Ends In " . gmdate("H:i:s", $block->flashSaleRemainingTime()) . " </h2>";
+    }
+    foreach ($block->flashSaleItems() as $value) {
+        foreach ($block->getConfigurableProduct() as $sku) {
+            if ($value['sku'] == $sku['sku']) {
+                echo "<h4>There is on-going Flash sale for " . $sku['sku'] . " product</h4>";
+                echo "<h4>Offer Price : " . $sku['finalprice'] . "</h4>";
+                echo '<h4><i>Quantity Left : ' . $value['qty_left'] . '</i></h4><br>';
+                if ($value['qty_left'] == 0) {
+                    echo "<b>No Stock Left</b><br>";
+                }
+                if ($value['qty_left'] <= 2  && $value['qty_left'] > 0) {
+                    echo "<h4><p class='qty-left'>only " . $value['qty_left'] . " left in " . $value['sku'] . "</p><br></h4></div>";
+                }
+            }
+        }
+    }
+}
+
+if ($block->getCurrentProduct()->getTypeId() == 'grouped') {
+    if (isset($block->flashSaleDetails()[0]['flash_sale_name'])) {
+        echo '<div class="flash-sale-catalog"><h2>Flash Sale : ' . $block->flashSaleDetails()[0]['flash_sale_name'] . " Ends In " . gmdate("H:i:s", $block->flashSaleRemainingTime()) . " </h2>";
+    }
+    foreach ($block->flashSaleItems() as $value) {
+        foreach ($block->getGroupedProduct() as $sku) {
+            if ($value['sku'] == $sku['sku']) {
+                echo "<h4>There is on-going Flash sale for " . $sku['sku'] . " product</h4>";
+                echo "<h4>Offer Price : " . $sku['finalprice'] . "</h4>";
+                echo '<h4><i>Quantity Left : ' . $value['qty_left'] . '</i></h4><br>';
+                if ($value['qty_left'] == 0) {
+                    echo "<b>No Stock Left</b><br>";
+                }
+                if ($value['qty_left'] <= 2  && $value['qty_left'] > 0) {
+                    echo "<h4><p class='qty-left'>only " . $value['qty_left'] . " left in " . $value['sku'] . "</p><br></h4></div>";
+                }
+            }
+        }
+    }
+}
+
+if ($block->getCurrentProduct()->getTypeId() == 'bundle') {
+    if (isset($block->flashSaleDetails()[0]['flash_sale_name'])) {
+        echo '<div class="flash-sale-catalog"><h2>Flash Sale : ' . $block->flashSaleDetails()[0]['flash_sale_name'] . " Ends In " . gmdate("H:i:s", $block->flashSaleRemainingTime()) . " </h2>";
+    }
+    foreach ($block->flashSaleItems() as $value) {
+        foreach ($block->getBundleProduct() as $sku) {
+            if ($value['sku'] == $sku['sku']) {
+                echo "<h4>There is on-going Flash sale for " . $sku['sku'] . " product</h4>";
+                echo "<h4>Offer Price : " . $sku['finalprice'] . "</h4>";
+                echo '<h4><i>Quantity Left : ' . $value['qty_left'] . '</i></h4><br>';
+                if ($value['qty_left'] == 0) {
+                    echo "<b>No Stock Left</b><br>";
+                }
+                if ($value['qty_left'] <= 2  && $value['qty_left'] > 0) {
+                    echo "<h4><p class='qty-left'>only " . $value['qty_left'] . " left in " . $value['sku'] . "</p><br></h4></div>";
+                }
+            }
+        }
+    }
+}
